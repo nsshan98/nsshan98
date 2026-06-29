@@ -1,38 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hi there 👋 I'm Nazmus Sakib
 
-## Getting Started
+**Full-Stack TypeScript Developer** passionate about building **scalable SaaS products, developer tools, and production-ready web applications**.
 
-First, run the development server:
+I specialize in creating modern web applications with **Next.js**, **NestJS**, and **TypeScript**, focusing on clean architecture, end-to-end type safety, authentication, and an excellent developer experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* 💻 Full-Stack Developer specializing in **TypeScript**
+* ⚡ Building modern SaaS platforms and developer tools
+* 🏗️ Strong focus on scalable architecture and maintainable code
+* 🔐 Experienced with authentication & authorization systems
+* 🌱 Always exploring better developer workflows and automation
+* 🤝 Open to freelance, collaborations, startups, and open-source contributions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### Languages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* TypeScript
+* JavaScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
 
-## Deploy on Vercel
+* Next.js (App Router)
+* React
+* Tailwind CSS
+* shadcn/ui
+* Radix UI
+* Material UI
+* React Query
+* React Hook Form
+* Zod
+* Axios
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# test
-"# me" 
+* Node.js
+* NestJS
+* Express
+* REST API
+
+### Databases & ORM
+
+* PostgreSQL
+* Drizzle ORM
+* Prisma
+* TypeORM
+
+### Authentication
+
+* NextAuth
+* Better Auth
+* JWT
+* Passport.js
+
+### Cloud & Storage
+
+* Vercel
+* Firebase
+* Cloudinary
+* AWS S3
+
+### Tooling
+
+* Git & GitHub
+* ESLint
+* Prettier
+* Jest
+* Supertest
+* Standard Version
+
+---
+
+# 🌟 Featured Projects
+
+## 🚀 create-my-next-starter
+
+A powerful CLI that scaffolds opinionated Next.js applications with support for modern tooling.
+
+### Highlights
+
+* Interactive CLI
+* Tailwind CSS
+* shadcn/ui
+* Material UI
+* TypeScript
+* Production-ready structure
+
+🔗 https://github.com/nsshan98/create-my-next-starter
+
+---
+
+# 💡 What I Enjoy Building
+
+* SaaS Applications
+* POS & Inventory Systems
+* Authentication Platforms
+* Admin Dashboards
+* REST APIs
+* Developer CLIs
+* Internal Tools
+* AI-powered Applications
+* Automation Workflows
+
+---
+
+# 📚 Development Philosophy
+
+I believe great software should be:
+
+* Simple
+* Scalable
+* Strongly typed
+* Well documented
+* Easy to maintain
+* Pleasant for developers to work with
+
+When building applications, I prioritize:
+
+* Clean Architecture
+* Reusable Components
+* End-to-End Type Safety
+* Secure Authentication
+* Performance
+* Accessibility
+* Developer Experience
+
+---
+
+# 🤝 Open Source
+
+I enjoy building open-source tools that improve developer productivity.
+
+Contributions, feature requests, bug reports, and pull requests are always welcome.
+
+---
+
+# 📫 Connect With Me
+
+📍 Location: **Jashore, Bangladesh**
+
+📧 Email: **[n.sakibnss@gmail.com](mailto:n.sakibnss@gmail.com)**
+
+🌐 Portfolio: **https://iamsakib.vercel.app**
+
+💼 LinkedIn: **https://linkedin.com/in/nsshan98**
+
+---
+
+⭐ If you find one of my projects useful, consider giving it a star—it helps support my work!
