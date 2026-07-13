@@ -1,121 +1,181 @@
-import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { Sparkles } from "lucide-react";
+
 
 const AboutSection = () => {
-
-  const drives = [
-    {
-      text: "Creating intuitive and accessible user experiences",
-      color: "bg-cyan-400",
-    },
-    {
-      text: "Solving complex problems with elegant solutions",
-      color: "bg-blue-400",
-    },
-    {
-      text: "Continuous learning and professional growth",
-      color: "bg-teal-400",
-    },
-    {
-      text: "Collaborating with talented teams and individuals",
-      color: "bg-purple-400",
-    },
-    {
-      text: "Building inclusive and user-first designs",
-      color: "bg-pink-400",
-    },
-    {
-      text: "Attention to detail with pixel-perfect UIs",
-      color: "bg-green-400",
-    },
-    {
-      text: "Optimizing performance for fast, smooth experiences",
-      color: "bg-yellow-400",
-    },
-    {
-      text: "Merging creativity with clean, maintainable code",
-      color: "bg-orange-400",
-    },
-    {
-      text: "Staying ahead of the curve with modern frameworks & tools",
-      color: "bg-indigo-400",
-    },
-    {
-      text: "Crafting smooth animations and micro-interactions",
-      color: "bg-rose-400",
-    },
-  ];
-
   return (
     <section
-      className="relative min-h-screen py-20 px-4 bg-slate-800/50 backdrop-blur-sm overflow-hidden"
+      className="relative py-24 px-4 overflow-hidden"
       id="about-me"
+      style={{
+        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1a2840 60%, #1e293b 80%, #0f172a 100%)",
+      }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-800/30 via-slate-700/20 to-slate-900/40" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl animate-pulse delay-500" />
+      {/* Floating decorative cubes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-left cubes */}
+        <div
+          className="absolute top-12 left-8 w-10 h-10 rounded-lg opacity-40"
+          style={{
+            background: "linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)",
+            transform: "rotate(25deg)",
+            boxShadow: "0 8px 32px rgba(34, 211, 238, 0.2)",
+          }}
+        />
+        <div
+          className="absolute top-24 left-20 w-6 h-6 rounded-md opacity-30"
+          style={{
+            background: "linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%)",
+            transform: "rotate(-15deg)",
+            boxShadow: "0 4px 16px rgba(34, 211, 238, 0.15)",
+          }}
+        />
+        <div
+          className="absolute top-8 left-32 w-4 h-4 rounded-sm opacity-25"
+          style={{
+            background: "linear-gradient(135deg, #a5f3fc 0%, #67e8f9 100%)",
+            transform: "rotate(45deg)",
+          }}
+        />
+        {/* Top-right cubes */}
+        <div
+          className="absolute top-16 right-16 w-8 h-8 rounded-md opacity-25"
+          style={{
+            background: "linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)",
+            transform: "rotate(30deg)",
+            boxShadow: "0 6px 24px rgba(34, 211, 238, 0.15)",
+          }}
+        />
+        <div
+          className="absolute top-32 right-32 w-5 h-5 rounded-sm opacity-20"
+          style={{
+            background: "linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%)",
+            transform: "rotate(-20deg)",
+          }}
+        />
+        {/* Bottom-left cube */}
+        <div
+          className="absolute bottom-20 left-16 w-7 h-7 rounded-md opacity-20"
+          style={{
+            background: "linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)",
+            transform: "rotate(40deg)",
+          }}
+        />
+        {/* Glow effects */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      </div>
 
-      <div className="relative container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About Me
-          </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Get to know the person behind the code
-          </p>
-        </div>
+      <div className="relative container mx-auto max-w-7xl z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+          {/* Left - Photo with arch blob + vertical name */}
+          <div className="flex items-center gap-8 justify-center lg:justify-center">
+            <div className="relative" style={{ width: '400px', height: '540px' }}>
+              {/* Arch-shaped colored blob behind photo */}
+              <div
+                className="absolute z-0"
+                style={{
+                  top: '20px',
+                  left: '50px',
+                  width: '330px',
+                  height: '500px',
+                  borderRadius: '170px 170px 30px 30px',
+                  background: 'linear-gradient(180deg, #22d3ee 0%, #0891b2 60%, #0e7490 100%)',
+                }}
+              />
 
-        <div className="">
-          {/* Personal Story */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Card className="p-8 bg-slate-700/30 border-slate-600/30 backdrop-blur-sm hover:bg-slate-700/40 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300">
-              <CardContent className="p-0">
-                <h3 className="text-2xl font-semibold mb-4 text-white">
-                  My Journey
-                </h3>
-                <div className="space-y-4 text-slate-300 leading-relaxed">
-                  <p>
-                    Five years ago, I wrote my first lines of code out of pure
-                    curiosity — and that spark quickly grew into a passion for
-                    crafting beautiful, intuitive digital experiences. What
-                    started as a hobby soon became my career, and I&apos;ve
-                    loved every moment of the journey.
-                  </p>
-                  <p>
-                    As a Frontend Developer, I specialize in bringing ideas to
-                    life through modern JavaScript frameworks, sleek UI design,
-                    and a deep focus on user experience. My goal is simple: to
-                    build applications that not only perform flawlessly but also
-                    feel effortless and enjoyable to use.
-                  </p>
-                  <p>
-                    Beyond coding, I enjoy staying ahead of the curve with the
-                    latest trends in web technologies. For me, development
-                    isn&apos;t just about writing code — it&apos;s about
-                    creating meaningful, user-first solutions that make an
-                    impact.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              {/* Photo overlapping the blob */}
+              <div
+                className="absolute z-10 overflow-hidden shadow-2xl shadow-cyan-900/30"
+                style={{
+                  top: '0',
+                  left: '20px',
+                  width: '360px',
+                  height: '520px',
+                  borderRadius: '20px',
+                }}
+              >
+                <Image
+                  src="/about-me.png"
+                  alt="Nazmus Sakib"
+                  fill
+                  className="object-cover"
+                  sizes="360px"
+                />
+              </div>
 
-            <Card className="p-8 bg-slate-700/30 border-slate-600/30 backdrop-blur-sm hover:bg-slate-700/40 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300">
-              <CardContent className="p-0">
-                <h3 className="text-2xl font-semibold mb-4 text-white">
-                  What Drives Me
-                </h3>
-                <div className="space-y-3 text-slate-300">
-                  {drives.map((drive, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div
-                        className={`w-2 h-2 rounded-full ${drive.color}`}
-                      ></div>
-                      <p>{drive.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              {/* Vertical name text overlapping the photo from the left */}
+              <div
+                className="absolute z-20"
+                style={{
+                  left: '-10px',
+                  bottom: '0',
+                  writingMode: 'vertical-lr',
+                  transform: 'rotate(180deg)',
+                }}
+              >
+                <span
+                  className="font-black uppercase select-none leading-none"
+                  style={{
+                    fontSize: '5rem',
+                    color: 'white',
+                    WebkitTextStroke: '2px rgba(255,255,255,0.8)',
+                    WebkitTextFillColor: 'transparent',
+                    textShadow: '0 0 40px rgba(34, 211, 238, 0.15)',
+                  }}
+                >
+                  sakib
+                </span>
+              </div>
+            </div>
+
+            {/* Vertical divider line */}
+            <div className="hidden lg:flex flex-col items-center self-stretch py-8">
+              <div className="w-px flex-1 bg-gradient-to-b from-transparent via-cyan-500/30 to-transparent" />
+            </div>
+          </div>
+
+          {/* Right - Content */}
+          <div className="space-y-6">
+            {/* Section heading */}
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              About me
+            </h2>
+
+            {/* Description paragraphs */}
+            <div className="space-y-5 text-slate-300 leading-relaxed text-base">
+              <p>
+                Welcome to my portfolio! I&apos;m Nazmus Sakib, a passionate Frontend
+                Developer dedicated to creating seamless and visually engaging
+                digital experiences. With hands-on experience, I specialize in
+                building intuitive interfaces that enhance usability and user
+                satisfaction.
+              </p>
+              <p>
+                My skills include modern JavaScript frameworks, responsive design,
+                and component-driven architecture, ensuring that each interface is
+                both aesthetically pleasing and functionally efficient. I have worked
+                on diverse projects, including web platforms and interactive
+                dashboards, always focusing on user-centered solutions that drive
+                engagement.
+              </p>
+            </div>
+
+            {/* Highlighted quote */}
+            <div className="flex items-start gap-3 py-4">
+              <div
+                className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center mt-0.5"
+                style={{
+                  background: "linear-gradient(135deg, #22d3ee 0%, #0891b2 100%)",
+                }}
+              >
+                <Sparkles className="w-4 h-4 text-white" />
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed italic">
+                I am deeply committed to my work, investing creativity and precision into
+                every project to ensure a unique and effective user experience.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -16,38 +16,15 @@ const Footer = () => {
       </div>
 
       <div className="relative container mx-auto max-w-7xl px-4">
-        {/* Newsletter Section */}
-        <div className="py-8 border-t border-slate-700/50">
-          <div className="text-center max-w-2xl mx-auto">
-            <h4 className="text-xl font-semibold text-white mb-2">
-              Stay Updated
-            </h4>
-            <p className="text-slate-300 mb-6">
-              Subscribe to get notified about new articles, projects, and
-              updates.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 rounded-lg border border-slate-600 bg-slate-800/50 text-white placeholder-slate-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300"
-              />
-              <Button className="px-6 bg-cyan-600 hover:bg-cyan-700 text-white transition-all duration-300 hover:scale-105">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Footer */}
         <div className="py-6 border-t border-slate-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <span>© 2025 Nazmus Sakib. Made with</span>
               <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
-             <span>and lots of</span>
+              <span>and lots of</span>
               <Coffee className="w-4 h-4 text-red-400 fill-current animate-pulse" />
-              
+
             </div>
 
             <div className="flex items-center gap-4">

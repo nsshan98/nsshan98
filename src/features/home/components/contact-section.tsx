@@ -10,8 +10,6 @@ import {
   Phone,
   MapPin,
   Send,
-  MessageCircle,
-  Calendar,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -139,7 +137,7 @@ const ContactSection = () => {
 
   return (
     <section
-      className="relative min-h-screen py-20 px-4 bg-slate-800/50 backdrop-blur-sm"
+      className=" py-10 px-4 bg-slate-800/50 backdrop-blur-sm"
       id="contact"
     >
       {/* Background effects */}
@@ -178,11 +176,10 @@ const ContactSection = () => {
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-start gap-4 group">
                     <div
-                      className={`flex items-center justify-center w-12 h-12 rounded-full ${
-                        method.primary
-                          ? "bg-cyan-500 text-white"
-                          : "bg-slate-600 text-slate-300"
-                      } group-hover:scale-110 transition-transform`}
+                      className={`flex items-center justify-center w-12 h-12 rounded-full ${method.primary
+                        ? "bg-cyan-500 text-white"
+                        : "bg-slate-600 text-slate-300"
+                        } group-hover:scale-110 transition-transform`}
                     >
                       <method.icon className="w-5 h-5" />
                     </div>
@@ -351,55 +348,6 @@ const ContactSection = () => {
                 )}
               </form>
             </CardContent>
-          </Card>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 text-center bg-slate-700/50 border-slate-600 backdrop-blur-sm hover:bg-slate-700/70 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 group">
-            <MessageCircle className="w-12 h-12 mx-auto mb-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-            <h3 className="font-semibold text-white mb-2">Quick Chat</h3>
-            <p className="text-sm text-slate-300 mb-4">
-              Need a quick consultation?
-            </p>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-slate-600 text-slate-300 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 bg-transparent"
-            >
-              Schedule Call
-            </Button>
-          </Card>
-
-          <Card className="p-6 text-center bg-slate-700/50 border-slate-600 backdrop-blur-sm hover:bg-slate-700/70 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 group">
-            <Calendar className="w-12 h-12 mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform" />
-            <h3 className="font-semibold text-white mb-2">Book Meeting</h3>
-            <p className="text-sm text-slate-300 mb-4">
-              Let&apos;s discuss your project in detail
-            </p>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-slate-600 text-slate-300 hover:bg-blue-500 hover:text-white hover:border-blue-500 bg-transparent"
-            >
-              View Calendar
-            </Button>
-          </Card>
-
-          <Card className="p-6 text-center bg-slate-700/50 border-slate-600 backdrop-blur-sm hover:bg-slate-700/70 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 group">
-            <Mail className="w-12 h-12 mx-auto mb-4 text-teal-400 group-hover:scale-110 transition-transform" />
-            <h3 className="font-semibold text-white mb-2">Email Direct</h3>
-            <p className="text-sm text-slate-300 mb-4">
-              Prefer email? Send directly
-            </p>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-slate-600 text-slate-300 hover:bg-teal-500 hover:text-white hover:border-teal-500 bg-transparent"
-              asChild
-            >
-              <Link href="mailto:jane@example.com">Send Email</Link>
-            </Button>
           </Card>
         </div>
       </div>

@@ -9,6 +9,7 @@ const categories = [
   "POS SOLUTIONS",
   "TRACKER",
   "PACKAGE",
+  "SERVICE",
 ];
 
 const projects = [
@@ -23,7 +24,7 @@ const projects = [
     externalLink: "https://bikroyplus.com/",
     categories: ["POS SOLUTIONS"],
   },
-    {
+  {
     id: 2,
     title: "Intelens",
     subTitle: "Smart Expense Tracking & Budget Management.",
@@ -52,6 +53,23 @@ const projects = [
     githubLink: "https://github.com/nsshan98/create-my-next-starter",
     categories: ["PACKAGE"],
   },
+  {
+    id: 4,
+    title: "eMistribd",
+    subTitle: "eMistribd is an online Cleaning Service Provider.",
+    description:
+      "A comprehensive platform connecting customers with professional cleaning service providers for home and office cleaning needs.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn",
+      "Material UI",
+    ],
+    image: "/emistribd.png",
+    externalLink: "https://emistribd.com",
+    categories: ["SERVICE"],
+  },
 ];
 
 export default function PortfolioSection() {
@@ -61,10 +79,10 @@ export default function PortfolioSection() {
     activeTab === "SHOW ALL"
       ? projects
       : projects.filter((project) =>
-          project.categories.some(
-            (cat) => cat.toUpperCase() === activeTab.toUpperCase()
-          )
-        );
+        project.categories.some(
+          (cat) => cat.toUpperCase() === activeTab.toUpperCase()
+        )
+      );
 
   return (
     <section className="bg-slate-900/50 backdrop-blur-sm py-20 px-6 relative" id="portfolio">
