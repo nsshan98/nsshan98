@@ -4,7 +4,6 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Mail,
   Phone,
@@ -43,7 +42,7 @@ const ContactSection = () => {
       icon: Phone,
       title: "Phone",
       value: "+880 1923 248529",
-      description: "Available Mon-Fri, 9AM-6PM EST",
+      description: "Available Mon–Fri",
       href: "tel:+8801923248529",
       primary: false,
     },
@@ -176,10 +175,7 @@ const ContactSection = () => {
                 {contactMethods.map((method, index) => (
                   <div key={index} className="flex items-start gap-4 group">
                     <div
-                      className={`flex items-center justify-center w-12 h-12 rounded-full ${method.primary
-                        ? "bg-cyan-500 text-white"
-                        : "bg-slate-600 text-slate-300"
-                        } group-hover:scale-110 transition-transform`}
+                      className={`flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500 text-white group-hover:scale-110 transition-transform`}
                     >
                       <method.icon className="w-5 h-5" />
                     </div>
@@ -188,11 +184,6 @@ const ContactSection = () => {
                         <h3 className="font-semibold text-white">
                           {method.title}
                         </h3>
-                        {method.primary && (
-                          <Badge className="text-xs bg-cyan-500 text-white">
-                            Primary
-                          </Badge>
-                        )}
                       </div>
                       <Link
                         href={method.href}

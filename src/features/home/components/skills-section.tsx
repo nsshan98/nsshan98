@@ -293,6 +293,19 @@ function SkillIconCard({ skill }: { skill: SkillItem }) {
 
 export default function SkillsSection() {
   return (
+    <>
+      <style>{`
+        @media (max-width: 639px) {
+          .bento-grid {
+            grid-template-columns: 1fr !important;
+            grid-template-areas:
+              "frontend"
+              "backend"
+              "tools"
+              "database" !important;
+          }
+        }
+      `}</style>
     <section
       id="technical-skills"
       className="py-24 px-6 relative overflow-hidden"
@@ -314,7 +327,7 @@ export default function SkillsSection() {
 
         {/* Bento Grid */}
         <div
-          className="grid gap-4"
+          className="bento-grid grid gap-4"
           style={{
             gridTemplateColumns: "1fr 1fr 1fr",
             gridTemplateRows: "auto auto",
@@ -347,5 +360,6 @@ export default function SkillsSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

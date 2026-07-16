@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="py-6 border-t border-slate-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <span>© 2025 Nazmus Sakib. Made with</span>
+              <span>© Nazmus Sakib. Made with</span>
               <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
               <span>and lots of</span>
               <Coffee className="w-4 h-4 text-red-400 fill-current animate-pulse" />

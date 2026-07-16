@@ -64,10 +64,25 @@ const projects = [
       "TypeScript",
       "Tailwind CSS",
       "Shadcn",
-      "Material UI",
     ],
     image: "/emistribd.png",
     externalLink: "https://emistribd.com",
+    categories: ["SERVICE"],
+  },
+  {
+    id: 5,
+    title: "Esheba",
+    subTitle: "Esheba is an online Cleaning Service Provider.",
+    description:
+      "A comprehensive platform connecting customers with professional cleaning service providers for home and office cleaning needs.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn",
+    ],
+    image: "/eshebabd.png",
+    externalLink: "https://eshebabd.com",
     categories: ["SERVICE"],
   },
 ];
@@ -132,7 +147,7 @@ export default function PortfolioSection() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+                <div className="absolute inset-0 bg-slate-900/60 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
                   <div className="flex gap-3">
                     {project.externalLink && (
                       <a

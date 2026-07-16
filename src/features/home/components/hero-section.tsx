@@ -59,9 +59,10 @@ const HeroSection = () => {
           className="object-cover"
           sizes="65vw"
         />
-        {/* Gradient overlay to blend image into dark left side */}
+        {/* Overlay: uniform dark on mobile, left-to-right gradient on desktop */}
+        <div className="absolute inset-0 bg-black/60 lg:bg-transparent" />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden lg:block"
           style={{
             background: `
               linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 15%, rgba(0,0,0,0.1) 40%, transparent 60%),
@@ -110,7 +111,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button variant="outline" asChild>
                 <Link
-                  href="/file-sample_150kB.pdf"
+                  href="/Nazmus_Sakib_CV.pdf"
                   download="Nazmus_Sakib_CV.pdf"
                 >
                   <Download />
