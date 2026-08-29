@@ -7,11 +7,12 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const menuItems = [
-  { label: "Home", sectionId: "home" },
-  { label: "About", sectionId: "about-me" },
-  { label: "Services", sectionId: "services" },
-  { label: "Portfolio", sectionId: "portfolio" },
-  { label: "Contact", sectionId: "contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about-me" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -49,7 +50,7 @@ export default function Navbar() {
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
-                  href={`#${item.sectionId}`}
+                  href={item.href}
                   className={cn(
                     "relative font-medium text-amber-50 transition-all duration-300 ease-in-out  hover:text-cyan-400 group",
                     isScrolled
@@ -119,7 +120,7 @@ export default function Navbar() {
             {menuItems.map((item, index) => (
               <Link
                 key={index}
-                href={`#${item.sectionId}`}
+                href={item.href}
                 className="text-muted-foreground hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 py-3 px-4 rounded-lg border-b border-border/50 hover:border-cyan-400/30 last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >
