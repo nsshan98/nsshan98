@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { BlogPostMeta } from "./types";
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://nsshan.dev");
+export const SITE_URL = "https://iamsakib.vercel.app";
 
 export const AUTHOR_DEFAULT = "Nazmus Sakib";
 

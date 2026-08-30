@@ -9,23 +9,23 @@ export const post: BlogPostMeta = {
   title: "How to Install and Uninstall Antigravity IDE on Linux (.tar.gz Setup Guide)",
   slug: "install-antigravity-ide-linux",
   description:
-    "A complete, step-by-step technical guide on extracting, installing, and configuring Antigravity IDE on Linux from a .tar.gz archive, creating desktop launchers, and performing a clean uninstall.",
+    "A complete, step-by-step technical guide on extracting, installing, and configuring Antigravity IDE on Linux from a .tar.gz archive, setting Electron sandbox permissions, creating desktop launchers, and performing a clean uninstall.",
   publishedAt: "2026-08-29",
-  updatedAt: "2026-08-29",
+  updatedAt: "2026-08-30",
   author: "Nazmus Sakib",
   authorRole: "Curious Technologist",
   category: "Linux",
-  tags: ["Linux", "Antigravity", "IDE", "DevOps", "Guide", "Bash", "Setup"],
+  tags: ["Linux", "Antigravity", "IDE", "DevOps", "Guide", "Bash", "Setup", "Electron"],
   featuredImage: "https://pub-f8f1a4ed23fa4b1db02e4a63a4383001.r2.dev/images/antigravity_linux_thumbnail_1787993420531.jpg",
   featuredImageAlt: "Installing Antigravity IDE on Linux Guide Thumbnail",
-  readingTime: "6 min read",
+  readingTime: "7 min read",
   featured: true,
   toc: [
     { id: "introduction", title: "Introduction", level: 2 },
     { id: "downloading-the-ide", title: "Step 0: Downloading the Standalone IDE", level: 2 },
     { id: "part-1-step-by-step-installation", title: "Part 1: Step-by-Step Installation", level: 2 },
-    { id: "part-2-troubleshooting-and-full-uninstall", title: "Part 2: Troubleshooting & Clean Uninstall", level: 2 },
-    { id: "part-3-desktop-integration", title: "Part 3: Desktop Menu Integration", level: 2 },
+    { id: "part-2-desktop-integration", title: "Part 2: Desktop Menu Integration", level: 2 },
+    { id: "part-3-troubleshooting-and-uninstall", title: "Part 3: Uninstall Guide (Standard vs. Clean)", level: 2 },
     { id: "conclusion", title: "Conclusion & Pro Tips", level: 2 },
   ],
 };
@@ -40,7 +40,7 @@ export default function PostContent() {
 
       <p>
         In this comprehensive guide, we will walk through the exact terminal commands required to extract and install{" "}
-        <strong>Antigravity IDE</strong> on Linux, integrate it into your system application menu, and safely troubleshoot or completely clean-uninstall it if needed.
+        <strong>Antigravity IDE</strong> on Linux, configure mandatory Electron sandbox permissions, integrate it into your system application menu, and perform a standard or clean uninstall if needed.
       </p>
 
       <Quote author="Linux Application Standards" source="Freedesktop.org Specification">
@@ -101,6 +101,10 @@ ls`}
 mv "Antigravity IDE" ~/Applications/antigravity-ide`}
       />
 
+      <Callout type="info" title="Extracted Directory Name Variations">
+        Note: The extracted folder name may vary between releases, such as <code>Antigravity IDE</code> or <code>Antigravity-x64</code>. Check the extracted folder name with <code>ls</code> before running the <code>mv</code> command.
+      </Callout>
+
       <h3 id="step-4-set-executable-permissions">Step 4: Set Executable Permissions</h3>
       <p>Ensure the main binary file has execution permissions enabled:</p>
 
@@ -110,9 +114,39 @@ mv "Antigravity IDE" ~/Applications/antigravity-ide`}
         code={`chmod +x ~/Applications/antigravity-ide/antigravity-ide`}
       />
 
-      <h3 id="step-5-test-run-the-ide">Step 5: Test Run the IDE from Terminal</h3>
-      <Callout type="tip" title="Test Launch Before Creating Desktop Entry">
-        Always launch the executable directly from your terminal first to check for any missing shared library dependencies.
+      <h3 id="step-5-configure-electron-sandbox">Step 5: Configure Electron Sandbox Permissions</h3>
+      <p>
+        Antigravity IDE is an Electron and Chromium-based application. On Linux, Chromium&apos;s SUID sandbox helper binary (<code>chrome-sandbox</code>) requires <code>root:root</code> ownership and <code>4755</code> permissions to function properly. Without this configuration, launching the IDE will crash with the following error:
+      </p>
+
+      <Quote author="Electron Runtime Exception" source="Chromium Sandbox Helper">
+        The SUID sandbox helper binary was found, but is not configured correctly.
+      </Quote>
+
+      <p>Configure ownership and permissions for <code>chrome-sandbox</code> using <code>sudo</code>:</p>
+
+      <CodeBlock
+        language="bash"
+        filename="terminal"
+        code={`sudo chown root:root ~/Applications/antigravity-ide/chrome-sandbox
+sudo chmod 4755 ~/Applications/antigravity-ide/chrome-sandbox`}
+      />
+
+      <p>Verify the sandbox file permissions:</p>
+
+      <CodeBlock
+        language="bash"
+        filename="terminal"
+        code={`ls -l ~/Applications/antigravity-ide/chrome-sandbox`}
+      />
+
+      <Callout type="tip" title="Expected Permission Output">
+        The output should display <code>-rwsr-xr-x 1 root root ... chrome-sandbox</code> with the SUID flag (<code>s</code>) active.
+      </Callout>
+
+      <h3 id="step-6-test-run-the-ide">Step 6: Test Run the IDE from Terminal</h3>
+      <Callout type="tip" title="Test Launch Before Desktop Entry">
+        Always launch the executable directly from the terminal before creating the desktop entry. This verifies both the application binary and its Linux sandbox configuration before adding another layer of integration.
       </Callout>
 
       <CodeBlock
@@ -120,58 +154,28 @@ mv "Antigravity IDE" ~/Applications/antigravity-ide`}
         filename="terminal"
         code={`~/Applications/antigravity-ide/antigravity-ide`}
       />
-      <p>If the IDE opens successfully, close it and proceed to Part 3 to add it to your system launcher menu!</p>
+      <p>If the IDE opens successfully, close it and proceed to Part 2 to add it to your system launcher menu!</p>
 
-      <h2 id="part-2-troubleshooting-and-full-uninstall">Part 2: Troubleshooting & Clean Uninstall</h2>
-
-      <p>
-        If the IDE fails to launch, crashes, or you want to perform a complete clean reinstall, follow these cleanup steps first.
-      </p>
-
-      <Callout type="warning" title="When to Perform a Full Uninstall">
-        Perform these steps if you experience permission errors, incomplete extractions, or broken application menu shortcuts.
-      </Callout>
-
-      <h3 id="step-1-remove-desktop-launcher">Step 1: Remove Application Launcher</h3>
-      <CodeBlock
-        language="bash"
-        filename="terminal"
-        code={`rm -f ~/.local/share/applications/antigravity-ide.desktop`}
-      />
-
-      <h3 id="step-2-remove-installed-ide-files">Step 2: Remove Installed IDE Directory</h3>
-      <CodeBlock
-        language="bash"
-        filename="terminal"
-        code={`rm -rf ~/Applications/antigravity-ide`}
-      />
-
-      <h3 id="step-3-remove-corrupted-downloads">Step 3: Remove Corrupted Download Archive (Optional)</h3>
-      <p>If you suspect the downloaded tarball was corrupted during transfer:</p>
-
-      <CodeBlock
-        language="bash"
-        filename="terminal"
-        code={`rm -f ~/Downloads/"Antigravity IDE.tar.gz"`}
-      />
-
-      <h3 id="step-4-verify-removal-and-refresh-database">Step 4: Verify Removal & Refresh Desktop Database</h3>
-      <CodeBlock
-        language="bash"
-        filename="terminal"
-        code={`ls ~/Applications
-ls ~/.local/share/applications | grep -i antigravity
-update-desktop-database ~/.local/share/applications 2>/dev/null`}
-      />
-      <p>Once cleared, re-download the archive and repeat the installation steps in Part 1.</p>
-
-      <h2 id="part-3-desktop-integration">Part 3: Desktop Menu & Launcher Integration</h2>
+      <h2 id="part-2-desktop-integration">Part 2: Desktop Menu & Launcher Integration</h2>
 
       <p>
         To launch Antigravity IDE directly from your system application menu (Super / Win key) and pin it to your dock, create a custom <code>.desktop</code> entry.
       </p>
 
       <h3 id="step-1-create-desktop-entry-file">Step 1: Create Desktop Shortcut Entry</h3>
+
+      <p>First, verify your home directory path by running:</p>
+
+      <CodeBlock
+        language="bash"
+        filename="terminal"
+        code={`echo $HOME`}
+      />
+
+      <Callout type="warning" title="Replace Username Placeholder">
+        Standard <code>.desktop</code> files do not reliably expand environment variables like <code>$HOME</code>. Replace <code>YOUR_USERNAME</code> in the block below with your actual Linux username (or use the output of <code>echo $HOME</code>).
+      </Callout>
+
       <CodeBlock
         language="bash"
         filename="terminal"
@@ -182,8 +186,8 @@ Version=1.0
 Type=Application
 Name=Antigravity IDE
 Comment=Antigravity Code Editor
-Exec=/home/sakib/Applications/antigravity-ide/antigravity-ide
-Path=/home/sakib/Applications/antigravity-ide
+Exec=/home/YOUR_USERNAME/Applications/antigravity-ide/antigravity-ide
+Path=/home/YOUR_USERNAME/Applications/antigravity-ide
 Terminal=false
 StartupNotify=true
 Categories=Development;IDE;
@@ -206,6 +210,43 @@ desktop-file-validate ~/.local/share/applications/antigravity-ide.desktop`}
         code={`update-desktop-database ~/.local/share/applications 2>/dev/null`}
       />
 
+      <h2 id="part-3-troubleshooting-and-uninstall">Part 3: Uninstall Guide (Standard vs. Clean)</h2>
+
+      <p>
+        Depending on whether you want to remove only the application binary or also wipe all local configuration state, follow the appropriate uninstall process below.
+      </p>
+
+      <h3 id="standard-uninstall">Method 1: Standard Uninstall (Recommended)</h3>
+      <p>This removes the application files and launcher entry while keeping your custom settings and user data intact:</p>
+
+      <CodeBlock
+        language="bash"
+        filename="terminal"
+        code={`rm -f ~/.local/share/applications/antigravity-ide.desktop
+rm -rf ~/Applications/antigravity-ide
+update-desktop-database ~/.local/share/applications 2>/dev/null`}
+      />
+
+      <h3 id="clean-purge-uninstall">Method 2: Clean / Purge Uninstall (Optional)</h3>
+      <Callout type="warning" title="Destructive Action">
+        A clean uninstall will permanently delete your user configuration, application cache, extensions, and local IDE state.
+      </Callout>
+
+      <CodeBlock
+        language="bash"
+        filename="terminal"
+        code={`# 1. Remove binary and launcher
+rm -f ~/.local/share/applications/antigravity-ide.desktop
+rm -rf ~/Applications/antigravity-ide
+
+# 2. Remove configuration, cache, and extension directories
+rm -rf ~/.config/Antigravity
+rm -rf ~/.antigravity
+
+# 3. Refresh desktop launcher database
+update-desktop-database ~/.local/share/applications 2>/dev/null`}
+      />
+
       <h2 id="conclusion">Conclusion & Pro Tips</h2>
 
       <p>
@@ -218,3 +259,4 @@ desktop-file-validate ~/.local/share/applications/antigravity-ide.desktop`}
     </>
   );
 }
+
