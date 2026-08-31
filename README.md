@@ -144,7 +144,7 @@ Contributions, feature requests, bug reports, and pull requests are always welco
 
 📍 Location: **Jashore, Bangladesh**
 
-📧 Email: **[n.sakibnss@gmail.com](mailto:n.sakibnss@gmail.com)**
+📧 Email: **[hello@bysakib.com](mailto:hello@bysakib.com)**
 
 🌐 Portfolio: **https://iamsakib.vercel.app**
 

@@ -28,7 +28,7 @@ const socialLogos = [
   { name: "LinkedIn", icon: LinkedInIcon, url: "https://www.linkedin.com/in/nsshan98/", color: "#0077B5", showInHero: true, showInFloating: true },
   { name: "GitHub", icon: GitHubIcon, url: "https://github.com/nsshan98/", color: "#FFFFFF", showInHero: true, showInFloating: false },
   { name: "WhatsApp", icon: WhatsAppIcon, url: "https://wa.me/8801923248529", color: "#25D366", showInHero: true, showInFloating: true },
-  { name: "Email", icon: MailIcon, url: "mailto:n.sakibnss@gmail.com", color: "#EA4335", showInHero: true, showInFloating: false },
+  { name: "Email", icon: MailIcon, url: "mailto:hello@bysakib.com", color: "#EA4335", showInHero: true, showInFloating: false },
 ]
 
 const HeroSection = () => {

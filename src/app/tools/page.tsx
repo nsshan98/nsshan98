@@ -1,11 +1,40 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, Code, Braces, Image as ImageIcon, Sparkles, ArrowRight, ShieldCheck, Zap, Layers } from "lucide-react";
+import { FileText, Braces, Image as ImageIcon, Sparkles, ArrowRight, ShieldCheck, Zap, Layers } from "lucide-react";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
+import { SITE_URL } from "@/lib/blog/metadata";
+import { generateToolsListJsonLd } from "@/lib/seo/structured-data";
 
-export const metadata = {
-  title: "Developer Tools | Nazmus Sakib",
-  description: "A suite of modern, fast, and secure developer utilities.",
+export const metadata: Metadata = {
+  title: "Developer Tools Suite — Fast, Secure & Browser-Based Utilities",
+  description:
+    "Explore a collection of modern, client-side developer tools including Image Compressor, JSON Toolkit, and Readme & Markdown Viewer. 100% private with zero server uploads.",
+  alternates: {
+    canonical: `${SITE_URL}/tools`,
+  },
+  openGraph: {
+    title: "Developer Tools Suite | Nazmus Sakib",
+    description:
+      "A collection of modern, fast, and secure developer utilities. Image Compressor, JSON Toolkit, and README Viewer — running 100% in your browser.",
+    url: `${SITE_URL}/tools`,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/about-me.png`,
+        width: 1200,
+        height: 630,
+        alt: "Developer Tools Suite — Nazmus Sakib",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Developer Tools Suite | Nazmus Sakib",
+    description:
+      "Modern, fast, client-side developer utilities: Image Compressor, JSON Toolkit, and Readme Viewer.",
+    images: [`${SITE_URL}/about-me.png`],
+  },
 };
 
 const tools = [
@@ -60,23 +89,17 @@ const tools = [
     ],
     status: "active",
   },
-  {
-    id: "code-diff",
-    title: "Code Diff Inspector",
-    description:
-      "Compare two snippets or files side-by-side or unified with syntax highlighting and whitespace toggles.",
-    icon: Code,
-    href: "#",
-    badge: "Coming Soon",
-    badgeColor: "bg-amber-500/10 text-amber-400/70 border-amber-500/20",
-    features: ["Side-by-side & Unified", "Syntax Highlighting", "Export Diff Patch"],
-    status: "coming_soon",
-  },
 ];
 
 export default function ToolsPage() {
+  const toolsListJsonLd = generateToolsListJsonLd();
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsListJsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">

@@ -19,6 +19,8 @@ const menuItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mainDomain, setMainDomain] = useState<string>("");
+  const [isSubdomain, setIsSubdomain] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,9 +28,27 @@ export default function Navbar() {
       setIsScrolled(scrollTop > 0);
     };
 
+    if (typeof window !== "undefined") {
+      const host = window.location.host;
+      const isSub = host.startsWith("toolify.") || host.startsWith("toolify.localhost");
+      setIsSubdomain(isSub);
+      if (isSub) {
+        const rootHost = host.replace(/^toolify\./i, "");
+        setMainDomain(`${window.location.protocol}//${rootHost}`);
+      }
+    }
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getItemHref = (href: string) => {
+    if (isSubdomain) {
+      if (href === "/tools") return "/";
+      return `${mainDomain}${href}`;
+    }
+    return href;
+  };
 
   return (
     <>
@@ -51,7 +71,7 @@ export default function Navbar() {
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link
-                  href={item.href}
+                  href={getItemHref(item.href)}
                   className={cn(
                     "relative font-medium text-amber-50 transition-all duration-300 ease-in-out  hover:text-cyan-400 group",
                     isScrolled
@@ -121,7 +141,7 @@ export default function Navbar() {
             {menuItems.map((item, index) => (
               <Link
                 key={index}
-                href={item.href}
+                href={getItemHref(item.href)}
                 className="text-muted-foreground hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 py-3 px-4 rounded-lg border-b border-border/50 hover:border-cyan-400/30 last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >

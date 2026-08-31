@@ -6,16 +6,36 @@ import Footer from "@/components/shared/footer";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Search, Tag, Layers } from "lucide-react";
+import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
   title: "Blog & Technical Writing | Nazmus Sakib",
   description:
     "In-depth technical articles on backend architecture, database internals, PostgreSQL MVCC, Next.js performance, and modern web development.",
+  alternates: {
+    canonical: `${SITE_URL}/blog`,
+  },
   openGraph: {
+    title: "Technical Blog & Engineering Insights | Nazmus Sakib",
+    description:
+      "In-depth technical articles on backend architecture, database internals, PostgreSQL, and web development.",
+    url: `${SITE_URL}/blog`,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/about-me.png`,
+        width: 1200,
+        height: 630,
+        alt: "Technical Blog — Nazmus Sakib",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Technical Blog | Nazmus Sakib",
     description:
       "In-depth technical articles on backend architecture, database internals, PostgreSQL, and web development.",
-    type: "website",
+    images: [`${SITE_URL}/about-me.png`],
   },
 };
 

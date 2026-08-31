@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroSection from "@/features/home/components/hero-section";
 import AboutSection from "@/features/home/components/about-section";
 import SkillsSection from "@/features/home/components/skills-section";
@@ -6,8 +7,38 @@ import ExperienceSection from "@/features/home/components/experience-section";
 import EducationSection from "@/features/home/components/eduction-section";
 import ContactSection from "@/features/home/components/contact-section";
 import Footer from "@/components/shared/footer";
+import { SITE_URL } from "@/lib/blog/metadata";
 
-
+export const metadata: Metadata = {
+  title: "Nazmus Sakib — Full-Stack Software Engineer & System Architect",
+  description:
+    "Explore the portfolio, engineering projects, skills, backend architecture experience, and browser-based developer tools by Nazmus Sakib.",
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    description:
+      "Explore the portfolio, engineering projects, backend architecture experience, and browser-based developer tools by Nazmus Sakib.",
+    url: SITE_URL,
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/about-me.png`,
+        width: 1200,
+        height: 630,
+        alt: "Nazmus Sakib — Full-Stack Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    description:
+      "Portfolio, engineering projects, backend architecture experience, and developer tools by Nazmus Sakib.",
+    images: [`${SITE_URL}/about-me.png`],
+  },
+};
 
 export default function Home() {
   return (
