@@ -114,13 +114,13 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button variant="outline" asChild>
-                <Link
+                <a
                   href="/Nazmus_Sakib_CV.pdf"
                   download="Nazmus_Sakib_CV.pdf"
                 >
                   <Download />
                   Download CV
-                </Link>
+                </a>
               </Button>
               <Button variant="default" asChild>
                 <Link

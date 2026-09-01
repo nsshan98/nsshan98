@@ -79,6 +79,7 @@ export default function Navbar() {
               <li key={index}>
                 <Link
                   href={getItemHref(item.href)}
+                  prefetch={false}
                   className={cn(
                     "relative font-medium text-amber-50 transition-all duration-300 ease-in-out  hover:text-cyan-400 group",
                     isScrolled
@@ -150,6 +151,7 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={getItemHref(item.href)}
+                prefetch={false}
                 className="text-muted-foreground hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 py-3 px-4 rounded-lg border-b border-border/50 hover:border-cyan-400/30 last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >

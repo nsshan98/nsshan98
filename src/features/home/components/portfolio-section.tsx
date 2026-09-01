@@ -26,6 +26,17 @@ const projects = [
   },
   {
     id: 2,
+    title: "PdfGini",
+    subTitle: "Online PDF Tools & Document Processing Suite.",
+    description:
+      "A fast and secure browser-based PDF utility to merge, split, compress, and convert PDF documents easily.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
+    image: "/pdfgini.png",
+    externalLink: "http://pdfgini.com/",
+    categories: ["SERVICE"],
+  },
+  {
+    id: 3,
     title: "Intelens",
     subTitle: "Smart Expense Tracking & Budget Management.",
     description:
@@ -36,7 +47,7 @@ const projects = [
     categories: ["TRACKER"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Next.js Starter",
     subTitle: "A modern foundation for your next web app.",
     description:
@@ -54,7 +65,7 @@ const projects = [
     categories: ["PACKAGE"],
   },
   {
-    id: 4,
+    id: 5,
     title: "eMistribd",
     subTitle: "eMistribd is an online Cleaning Service Provider.",
     description:
@@ -70,7 +81,7 @@ const projects = [
     categories: ["SERVICE"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Esheba",
     subTitle: "Esheba is an online Cleaning Service Provider.",
     description:

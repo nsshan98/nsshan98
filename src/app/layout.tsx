@@ -104,7 +104,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.className} antialiased`}>
-        <GoogleAnalytics />
+        <GoogleAnalytics gaId="G-WY41S17HKR" />
         {children}
       </body>
     </html>
