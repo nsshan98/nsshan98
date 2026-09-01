@@ -3,7 +3,6 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, ExternalLink } from "lucide-react";
@@ -88,16 +87,21 @@ const ExperienceSection = () => {
                     <CardHeader className="pb-4">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                         <div className="space-y-2">
-                          <CardTitle className="text-xl md:text-2xl text-white group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-blue-400 transition-colors">
                             {experience.position}
-                          </CardTitle>
+                          </h3>
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                             <div className="flex items-center gap-2">
                               <span className="font-semibold text-blue-400">
                                 {experience.company}
                               </span>
                               {experience.companyUrl && (
-                                <Link href={experience.companyUrl} target="_blank" rel="noopener noreferrer">
+                                <Link
+                                  href={experience.companyUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`Visit ${experience.company} website`}
+                                >
                                   <ExternalLink className="w-4 h-4 text-slate-400 hover:text-blue-400 transition-colors cursor-pointer" />
                                 </Link>
                               )}

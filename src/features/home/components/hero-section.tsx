@@ -35,17 +35,20 @@ const HeroSection = () => {
   const [showFloatingSocials, setShowFloatingSocials] = useState(false)
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      // Show floating socials when scrolled down past 400px
-      if (window.scrollY > 400) {
-        setShowFloatingSocials(true)
-      } else {
-        setShowFloatingSocials(false)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isPast = window.scrollY > 400;
+          setShowFloatingSocials((prev) => (prev !== isPast ? isPast : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div id="home" className="relative w-full overflow-hidden bg-black" style={{ minHeight: '100vh' }}>
@@ -56,8 +59,9 @@ const HeroSection = () => {
           alt="Nazmus Sakib"
           fill
           priority
+          fetchPriority="high"
           className="object-cover"
-          sizes="65vw"
+          sizes="(max-width: 1023px) 100vw, 65vw"
         />
         {/* Overlay: uniform dark on mobile, left-to-right gradient on desktop */}
         <div className="absolute inset-0 bg-black/60 lg:bg-transparent" />
@@ -142,6 +146,7 @@ const HeroSection = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.name}
                   className="transition-all duration-500 hover:scale-110"
                   style={{
                     animationDelay: `${i * 100}ms`,
@@ -176,6 +181,7 @@ const HeroSection = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={social.name}
               className="w-10 h-10 rounded-full flex items-center justify-center bg-zinc-950/80 border transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40 backdrop-blur-sm group"
               style={{
                 borderColor: `${social.color}30`,

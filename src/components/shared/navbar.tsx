@@ -23,9 +23,16 @@ export default function Navbar() {
   const [isSubdomain, setIsSubdomain] = useState<boolean>(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const scrollTop = window.scrollY;      
-      setIsScrolled(scrollTop > 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 0;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     if (typeof window !== "undefined") {
@@ -38,7 +45,7 @@ export default function Navbar() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -102,6 +109,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               className="hover:bg-cyan-400/10 hover:text-cyan-400 transition-all duration-300 hover:scale-110"
             >
               <div className="relative w-6 h-6">

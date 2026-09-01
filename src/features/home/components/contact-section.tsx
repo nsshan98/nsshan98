@@ -327,7 +327,7 @@ const ContactSection = () => {
                   disabled={loading}
                   type="submit"
                   size="lg"
-                  className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
+                  className="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-colors"
                 >
                   {loading ? "Sending Email..." : (<><Send className="w-5 h-5 mr-2" /> Send Email</>)}
                 </Button>

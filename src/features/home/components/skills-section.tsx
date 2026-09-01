@@ -280,9 +280,9 @@ function SkillIconCard({ skill }: { skill: SkillItem }) {
         />
       </div>
       <span
-        className="text-[11px] transition-colors duration-300 text-center leading-tight"
+        className="text-[11px] font-medium transition-colors duration-300 text-center leading-tight"
         style={{
-          color: isHovered ? "#f3f4f6" : "#6b7280",
+          color: isHovered ? "#ffffff" : "#cbd5e1",
         }}
       >
         {skill.name}

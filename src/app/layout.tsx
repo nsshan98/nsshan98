@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 import { SITE_URL, AUTHOR_DEFAULT } from "@/lib/blog/metadata";
 import GoogleAnalytics from "@/components/shared/google-analytics";
 import { generatePersonJsonLd, generateWebSiteJsonLd } from "@/lib/seo/structured-data";
@@ -83,7 +91,7 @@ export default function RootLayout({
   const websiteJsonLd = generateWebSiteJsonLd();
 
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <head>
         <meta name="google-site-verification" content="p947cnm0CzaduoGfIeNJh5VTf19T-c47eRxwLEM9XP4" />
         <script
@@ -95,7 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className={`${poppins.className} antialiased`}>
         <GoogleAnalytics />
         {children}
       </body>

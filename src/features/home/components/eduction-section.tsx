@@ -2,7 +2,6 @@ import {
   Card,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Award, BookOpen, GraduationCap } from "lucide-react";
@@ -111,9 +110,9 @@ const EducationSection = () => {
                             <IconComponent className="w-6 h-6 text-cyan-400" />
                           </div>
                           <div className="space-y-2">
-                            <CardTitle className="text-xl md:text-2xl text-white group-hover:text-cyan-400 transition-colors">
+                            <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
                               {edu.degree}
-                            </CardTitle>
+                            </h3>
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                               <span className="font-semibold text-cyan-400">
                                 {edu.institution}

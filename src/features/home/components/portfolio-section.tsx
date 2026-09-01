@@ -126,8 +126,8 @@ export default function PortfolioSection() {
               className={cn(
                 "px-8 py-2 border transition-all duration-300 text-sm font-medium",
                 activeTab === category
-                  ? "bg-cyan-600 text-white border-cyan-600"
-                  : "bg-slate-800/50 text-slate-300 border-slate-700 hover:border-cyan-400 hover:text-cyan-400"
+                  ? "bg-cyan-500 text-slate-950 font-semibold border-cyan-500"
+                  : "bg-slate-800/80 text-slate-200 border-slate-700 hover:border-cyan-400 hover:text-cyan-300"
               )}
             >
               {category}
@@ -154,6 +154,7 @@ export default function PortfolioSection() {
                         href={project.externalLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Visit ${project.title}`}
                         className="p-2 bg-cyan-600 rounded-full text-white hover:bg-cyan-500 transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
@@ -164,6 +165,7 @@ export default function PortfolioSection() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${project.title} on GitHub`}
                         className="p-2 bg-slate-700 rounded-full text-white hover:bg-slate-600 transition-colors"
                       >
                         <Github className="w-5 h-5" />
