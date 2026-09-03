@@ -12,6 +12,7 @@ interface SinglePreviewProps {
 
 export default function SinglePreview({ item }: SinglePreviewProps) {
   const isDone = item.status === "done" && item.compressedBlob;
+  const hasCompressedImage = Boolean(item.compressedUrl && item.compressedBlob);
 
   const handleDownload = () => {
     if (item.compressedBlob) {
@@ -81,13 +82,21 @@ export default function SinglePreview({ item }: SinglePreviewProps) {
           </div>
 
           <div className="h-48 sm:h-56 rounded-xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center relative p-2">
-            {isDone ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={item.compressedUrl || ""}
-                alt="Compressed"
-                className="max-h-full max-w-full object-contain"
-              />
+            {hasCompressedImage ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.compressedUrl || ""}
+                  alt="Compressed"
+                  className="max-h-full max-w-full object-contain"
+                />
+                {item.status === "processing" && (
+                  <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[1px] flex flex-col items-center justify-center space-y-2">
+                    <div className="w-7 h-7 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin" />
+                    <span className="text-xs text-cyan-400 font-medium">Updating...</span>
+                  </div>
+                )}
+              </>
             ) : item.status === "processing" ? (
               <div className="flex flex-col items-center space-y-2">
                 <div className="w-8 h-8 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin" />

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { CompressionSettings, FormatOption } from "@/lib/image-compressor/types";
 import { formatBytes } from "@/lib/image-compressor/compressor-engine";
 import { Sliders, Maximize2, FileType, Info, Check, Target } from "lucide-react";
@@ -23,6 +23,7 @@ export default function SettingsPanel({
   estimatedSize,
   supportedMap,
 }: SettingsPanelProps) {
+  const [targetUnit, setTargetUnit] = useState<"KB" | "MB">("KB");
   const formatOptions: FormatOption[] = [
     {
       mime: "image/webp",
@@ -162,32 +163,63 @@ export default function SettingsPanel({
         </div>
 
         {settings.targetSizeKb !== null ? (
-          <div className="space-y-2 pt-2 border-t border-slate-800/80 animate-in fade-in">
-            <div className="flex items-center gap-3">
+          <div className="space-y-3 pt-2 border-t border-slate-800/80 animate-in fade-in">
+            <div className="flex items-center justify-between gap-3">
               <span className="text-xs text-slate-400 font-medium whitespace-nowrap">Target size:</span>
-              <div className="relative flex-1 max-w-[180px]">
-                <input
-                  type="number"
-                  min="10"
-                  max="100000"
-                  value={settings.targetSizeKb}
-                  onChange={(e) => {
-                    const val = parseInt(e.target.value, 10);
-                    onChange({
-                      ...settings,
-                      targetSizeKb: isNaN(val) ? 500 : Math.max(10, val),
-                    });
-                  }}
-                  className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-100 font-mono text-sm focus:border-cyan-400 focus:outline-none pr-10"
-                />
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400">
-                  KB
-                </span>
+              <div className="flex items-center gap-2 flex-1 max-w-[240px]">
+                <div className="relative flex-1">
+                  <input
+                    type="number"
+                    step={targetUnit === "MB" ? "0.1" : "1"}
+                    min={targetUnit === "MB" ? "0.01" : "1"}
+                    max={targetUnit === "MB" ? "500" : "500000"}
+                    value={
+                      targetUnit === "MB"
+                        ? parseFloat(((settings.targetSizeKb || 500) / 1024).toFixed(2))
+                        : settings.targetSizeKb || 500
+                    }
+                    onChange={(e) => {
+                      const val = parseFloat(e.target.value);
+                      if (isNaN(val) || val <= 0) return;
+                      const kbVal = targetUnit === "MB" ? Math.round(val * 1024) : Math.round(val);
+                      onChange({
+                        ...settings,
+                        targetSizeKb: Math.max(1, kbVal),
+                      });
+                    }}
+                    className="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-100 font-mono text-sm focus:border-cyan-400 focus:outline-none"
+                  />
+                </div>
+
+                <div className="flex items-center rounded-lg bg-slate-900 border border-slate-700 p-0.5 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setTargetUnit("KB")}
+                    className={`px-2.5 py-1 text-xs font-bold rounded-md transition-all ${
+                      targetUnit === "KB"
+                        ? "bg-cyan-500 text-slate-950 shadow"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    KB
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTargetUnit("MB")}
+                    className={`px-2.5 py-1 text-xs font-bold rounded-md transition-all ${
+                      targetUnit === "MB"
+                        ? "bg-cyan-500 text-slate-950 shadow"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    MB
+                  </button>
+                </div>
               </div>
             </div>
 
             <p className="text-[11px] text-amber-400/90 leading-relaxed bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/20">
-              ⭐ <strong>Best-Effort Iteration:</strong> Automatically adjusts quality parameters (and resolution scaling if necessary) to compress your image to under ~{settings.targetSizeKb} KB.
+              ⭐ <strong>Best-Effort Iteration:</strong> Automatically adjusts quality parameters (and resolution scaling if necessary) to compress your image to under ~{formatBytes((settings.targetSizeKb || 500) * 1024)}.
             </p>
           </div>
         ) : (

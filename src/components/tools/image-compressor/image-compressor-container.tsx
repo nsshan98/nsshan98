@@ -103,18 +103,30 @@ export default function ImageCompressorContainer() {
     [supportedMap]
   );
 
-  // Debounced re-compression trigger whenever settings change or items added
+  // Track settings to detect actual setting changes vs items state updates
   const settingsTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const prevSettingsRef = useRef<string>("");
 
   useEffect(() => {
     if (items.length === 0) return;
+
+    const currentSettingsStr = JSON.stringify(settings);
+    const settingsChanged = prevSettingsRef.current !== currentSettingsStr;
+
+    // Determine which items need processing
+    const itemsToProcess = settingsChanged
+      ? items
+      : items.filter((i) => i.status === "idle");
+
+    if (itemsToProcess.length === 0) return;
 
     if (settingsTimerRef.current) {
       clearTimeout(settingsTimerRef.current);
     }
 
     settingsTimerRef.current = setTimeout(() => {
-      items.forEach((item) => {
+      prevSettingsRef.current = currentSettingsStr;
+      itemsToProcess.forEach((item) => {
         processItem(item, settings);
       });
     }, 150);

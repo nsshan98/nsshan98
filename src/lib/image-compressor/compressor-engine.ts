@@ -240,41 +240,57 @@ export async function compressSingleImage(
   // 5. Determine target MIME type
   const targetMime = resolveOutputMime(settings.outputFormat, file.type, supportedMap);
 
-  // 6. Handle "Compress to Target Size" (Iterative Binary Search)
+  // 6. Handle "Compress to Target Size"
   if (settings.targetSizeKb && settings.targetSizeKb > 0) {
     const targetSizeBytes = settings.targetSizeKb * 1024;
-    let minQuality = 0.05;
-    let maxQuality = 1.0;
-    let bestBlob: Blob | null = null;
 
-    // Iterative binary search up to 8 iterations
-    for (let iter = 0; iter < 8; iter++) {
-      const currentQuality = (minQuality + maxQuality) / 2;
-      const testBlob = await canvasToBlob(canvas, targetMime, currentQuality);
+    // Check maximum quality (1.0) first
+    let bestBlob = await canvasToBlob(canvas, targetMime, 1.0);
+    let finalWidth = canvas.width;
+    let finalHeight = canvas.height;
+    let finalMime = targetMime;
 
-      if (
-        !bestBlob ||
-        Math.abs(testBlob.size - targetSizeBytes) < Math.abs(bestBlob.size - targetSizeBytes)
-      ) {
+    // If maximum quality output is ALREADY under or equal to target size, pad to exact target size!
+    if (bestBlob.size <= targetSizeBytes) {
+      const padded = await padBlobToTargetSize(bestBlob, targetSizeBytes);
+      return {
+        blob: padded,
+        width: finalWidth,
+        height: finalHeight,
+        mimeType: finalMime,
+      };
+    }
+
+    // Otherwise, binary search for the highest quality Q that yields blob.size <= targetSizeBytes
+    let minQ = 0.05;
+    let maxQ = 1.0;
+    bestBlob = await canvasToBlob(canvas, targetMime, minQ);
+
+    for (let iter = 0; iter < 10; iter++) {
+      const midQ = (minQ + maxQ) / 2;
+      const testBlob = await canvasToBlob(canvas, targetMime, midQ);
+
+      if (testBlob.size <= targetSizeBytes) {
+        // Valid size under target! Try to see if higher quality can fit
         bestBlob = testBlob;
-      }
-
-      if (Math.abs(testBlob.size - targetSizeBytes) / targetSizeBytes < 0.04) {
-        // Within 4% accuracy of target size!
-        break;
-      }
-
-      if (testBlob.size > targetSizeBytes) {
-        maxQuality = currentQuality;
+        minQ = midQ;
       } else {
-        minQuality = currentQuality;
+        // Size exceeds target! Reduce quality
+        maxQ = midQ;
       }
     }
 
-    // If even lowest quality is larger than target size, progressively scale down canvas resolution
-    if (bestBlob && bestBlob.size > targetSizeBytes * 1.1) {
-      let scale = 0.85;
-      while (scale >= 0.3 && bestBlob && bestBlob.size > targetSizeBytes * 1.05) {
+    // If even minimum quality (minQ) is still larger than targetSizeBytes (e.g., for PNG or high res),
+    // progressively scale down canvas resolution to guarantee target size fit
+    if (bestBlob.size > targetSizeBytes) {
+      let scale = 0.9;
+      // If PNG format, switch to lossy WebP/JPEG if PNG cannot be compressed by quality
+      const actualMime =
+        targetMime === "image/png" && supportedMap["image/webp"]
+          ? "image/webp"
+          : targetMime;
+
+      while (scale >= 0.1) {
         const scaledW = Math.max(16, Math.round(targetWidth * scale));
         const scaledH = Math.max(16, Math.round(targetHeight * scale));
 
@@ -291,20 +307,28 @@ export async function compressSingleImage(
           }
           scaleCtx.drawImage(source, 0, 0, scaledW, scaledH);
 
-          const scaledBlob = await canvasToBlob(scaleCanvas, targetMime, 0.5);
-          if (scaledBlob.size < bestBlob.size) {
+          const scaledBlob = await canvasToBlob(scaleCanvas, actualMime, 0.7);
+          if (scaledBlob.size <= targetSizeBytes) {
             bestBlob = scaledBlob;
+            finalWidth = scaleCanvas.width;
+            finalHeight = scaleCanvas.height;
+            finalMime = actualMime;
+            break;
           }
+          bestBlob = scaledBlob;
         }
-        scale -= 0.15;
+        scale -= 0.1;
       }
     }
 
+    // Pad final bestBlob to exact targetSizeBytes if needed
+    const finalPaddedBlob = await padBlobToTargetSize(bestBlob, targetSizeBytes);
+
     return {
-      blob: bestBlob || (await canvasToBlob(canvas, targetMime, settings.quality / 100)),
-      width: canvas.width,
-      height: canvas.height,
-      mimeType: targetMime,
+      blob: finalPaddedBlob,
+      width: finalWidth,
+      height: finalHeight,
+      mimeType: finalMime,
     };
   }
 
@@ -318,6 +342,106 @@ export async function compressSingleImage(
     height: canvas.height,
     mimeType: targetMime,
   };
+}
+
+/**
+ * Safely pad image binary data (metadata comments / trailing padding) to reach an exact target file size
+ */
+export async function padBlobToTargetSize(blob: Blob, targetSizeBytes: number): Promise<Blob> {
+  if (blob.size >= targetSizeBytes) {
+    return blob;
+  }
+
+  const neededPadding = targetSizeBytes - blob.size;
+  const mimeType = blob.type || "image/jpeg";
+
+  try {
+    const buffer = await blob.arrayBuffer();
+    const uint8 = new Uint8Array(buffer);
+
+    // JPEG Padding via COM (Comment) segments (0xFF 0xFE)
+    if (mimeType === "image/jpeg" || mimeType === "image/jpg") {
+      if (uint8.length >= 2 && uint8[0] === 0xff && uint8[1] === 0xd8) {
+        const paddingChunks: Uint8Array[] = [];
+        let remaining = neededPadding;
+
+        while (remaining > 0) {
+          const segmentHeaderSize = 4;
+          if (remaining < segmentHeaderSize + 1) break;
+
+          const payloadSize = Math.min(65533, remaining - segmentHeaderSize);
+          const segmentLen = payloadSize + 2;
+
+          const comSeg = new Uint8Array(segmentHeaderSize + payloadSize);
+          comSeg[0] = 0xff;
+          comSeg[1] = 0xfe;
+          comSeg[2] = (segmentLen >> 8) & 0xff;
+          comSeg[3] = segmentLen & 0xff;
+          paddingChunks.push(comSeg);
+          remaining -= comSeg.length;
+        }
+
+        let trailing: Uint8Array | null = null;
+        if (remaining > 0) {
+          trailing = new Uint8Array(remaining);
+        }
+
+        const parts: BlobPart[] = [
+          uint8.subarray(0, 2) as BlobPart,
+          ...paddingChunks.map((c) => c as BlobPart),
+          uint8.subarray(2) as BlobPart,
+        ];
+        if (trailing) parts.push(trailing as BlobPart);
+
+        return new Blob(parts, { type: mimeType });
+      }
+    }
+
+    // PNG Padding via tEXt chunk
+    if (mimeType === "image/png") {
+      if (uint8.length >= 8 && uint8[0] === 0x89 && uint8[1] === 0x50) {
+        const minChunkSize = 12;
+        let remaining = neededPadding;
+        const paddingChunks: Uint8Array[] = [];
+
+        while (remaining >= minChunkSize) {
+          const payloadSize = Math.min(65535, remaining - minChunkSize);
+          const chunk = new Uint8Array(minChunkSize + payloadSize);
+          chunk[0] = (payloadSize >> 24) & 0xff;
+          chunk[1] = (payloadSize >> 16) & 0xff;
+          chunk[2] = (payloadSize >> 8) & 0xff;
+          chunk[3] = payloadSize & 0xff;
+          chunk[4] = 0x74; // 't'
+          chunk[5] = 0x45; // 'E'
+          chunk[6] = 0x58; // 'X'
+          chunk[7] = 0x74; // 't'
+          paddingChunks.push(chunk);
+          remaining -= chunk.length;
+        }
+
+        let trailing: Uint8Array | null = null;
+        if (remaining > 0) {
+          trailing = new Uint8Array(remaining);
+        }
+
+        const parts: BlobPart[] = [
+          uint8.subarray(0, 8) as BlobPart,
+          ...paddingChunks.map((c) => c as BlobPart),
+          uint8.subarray(8) as BlobPart,
+        ];
+        if (trailing) parts.push(trailing as BlobPart);
+
+        return new Blob(parts, { type: mimeType });
+      }
+    }
+
+    // Fallback: append trailing zero bytes
+    const trailingBytes = new Uint8Array(neededPadding);
+    return new Blob([uint8 as BlobPart, trailingBytes as BlobPart], { type: mimeType });
+  } catch (err) {
+    console.warn("Failed to pad blob:", err);
+    return blob;
+  }
 }
 
 /**
