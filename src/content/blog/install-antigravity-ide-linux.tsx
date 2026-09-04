@@ -16,7 +16,7 @@ export const post: BlogPostMeta = {
   authorRole: "Curious Technologist",
   category: "Linux",
   tags: ["Linux", "Antigravity", "IDE", "DevOps", "Guide", "Bash", "Setup", "Electron"],
-  featuredImage: "https://pub-f8f1a4ed23fa4b1db02e4a63a4383001.r2.dev/images/antigravity_linux_thumbnail_1787993420531.jpg",
+  featuredImage: "https://pub-1bde5194bec740908565f398f2d2078f.r2.dev/blog/antigravity_linux_thumbnail.jpeg",
   featuredImageAlt: "Installing Antigravity IDE on Linux Guide Thumbnail",
   readingTime: "7 min read",
   featured: true,
