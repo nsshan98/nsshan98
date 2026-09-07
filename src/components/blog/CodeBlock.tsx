@@ -58,7 +58,7 @@ export default function CodeBlock({
   return (
     <div
       className={cn(
-        "group relative my-6 overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900/90 shadow-xl font-mono text-sm leading-relaxed text-slate-100",
+        "group relative my-6 overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900/90 shadow-xl font-mono text-xs sm:text-sm leading-relaxed text-slate-100",
         className
       )}
     >

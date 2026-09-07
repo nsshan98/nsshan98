@@ -6,9 +6,17 @@ interface BreadcrumbsProps {
   category?: string;
   title: string;
   className?: string;
+  rootName?: string;
+  rootPath?: string;
 }
 
-export default function Breadcrumbs({ category, title, className }: BreadcrumbsProps) {
+export default function Breadcrumbs({
+  category,
+  title,
+  className,
+  rootName = "Blog",
+  rootPath = "/blog",
+}: BreadcrumbsProps) {
   return (
     <nav aria-label="Breadcrumb" className={cn("flex items-center text-xs text-slate-400", className)}>
       <ol className="flex items-center space-x-1.5 sm:space-x-2 flex-wrap">
@@ -25,8 +33,8 @@ export default function Breadcrumbs({ category, title, className }: BreadcrumbsP
           <ChevronRight className="h-3.5 w-3.5 text-slate-600" />
         </li>
         <li>
-          <Link href="/blog" className="hover:text-cyan-400 transition-colors">
-            Blog
+          <Link href={rootPath} className="hover:text-cyan-400 transition-colors">
+            {rootName}
           </Link>
         </li>
         {category && (
@@ -36,7 +44,7 @@ export default function Breadcrumbs({ category, title, className }: BreadcrumbsP
             </li>
             <li>
               <Link
-                href={`/blog?category=${encodeURIComponent(category)}`}
+                href={`${rootPath}?category=${encodeURIComponent(category)}`}
                 className="hover:text-cyan-400 transition-colors text-slate-300"
               >
                 {category}
