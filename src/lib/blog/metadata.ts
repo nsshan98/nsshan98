@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BlogPostMeta } from "./types";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://bysakib.com";
+export const TOOLIFY_URL = process.env.NEXT_PUBLIC_TOOLIFY_URL || "https://toolify.bysakib.com";
 
 export const AUTHOR_DEFAULT = "Nazmus Sakib";
 

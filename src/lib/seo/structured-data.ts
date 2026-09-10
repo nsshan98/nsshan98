@@ -1,4 +1,4 @@
-import { SITE_URL, AUTHOR_DEFAULT } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL, AUTHOR_DEFAULT } from "@/lib/blog/metadata";
 
 export function generatePersonJsonLd() {
   return {
@@ -85,25 +85,25 @@ export function generateToolsListJsonLd() {
     name: "Developer Tools Suite by Nazmus Sakib",
     description:
       "A collection of ultra-fast, 100% client-side browser developer tools including Image Compressor, JSON Toolkit, and Readme Viewer.",
-    url: `${SITE_URL}/tools`,
+    url: TOOLIFY_URL,
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
         name: "Image Compressor & Optimizer",
-        url: `${SITE_URL}/tools/image-compressor`,
+        url: `${TOOLIFY_URL}/image-compressor`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "JSON Toolkit",
-        url: `${SITE_URL}/tools/json-toolkit`,
+        url: `${TOOLIFY_URL}/json-toolkit`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "README & Markdown Viewer",
-        url: `${SITE_URL}/tools/readme-viewer`,
+        url: `${TOOLIFY_URL}/readme-viewer`,
       },
     ],
   };

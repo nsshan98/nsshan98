@@ -9,22 +9,22 @@
 - GitHub: [https://github.com/nsshan98](https://github.com/nsshan98)
 - Expertise: Backend Architecture, PostgreSQL MVCC & Performance, Next.js, React, TypeScript, Client-side Browser Engines.
 
-## Developer Tools Suite (`/tools`)
+## Developer Tools Suite (`https://toolify.bysakib.com`)
 All developer utilities are 100% client-side, running directly inside the user's browser with zero server uploads for complete data privacy.
 
-- [Image Compressor & Optimizer](https://bysakib.com/tools/image-compressor):
+- [Image Compressor & Optimizer](https://toolify.bysakib.com/image-compressor):
   - Compress, resize, and convert images (JPG, PNG, WebP, AVIF, HEIC, GIF, SVG).
   - Target size compression (e.g. compress to < 500 KB).
   - EXIF metadata removal & orientation normalization.
   - Batch ZIP archive generation.
 
-- [JSON Toolkit](https://bysakib.com/tools/json-toolkit):
+- [JSON Toolkit](https://toolify.bysakib.com/json-toolkit):
   - JSON Formatter (2/4 space indentation, Tab, key sorting).
   - JSON Validator with exact line & column error highlighting.
   - JSON Minifier with instant byte savings statistics.
   - JSON to TypeScript Type & Interface Generator.
 
-- [README & Markdown Viewer](https://bysakib.com/tools/readme-viewer):
+- [README & Markdown Viewer](https://toolify.bysakib.com/readme-viewer):
   - Ultra-fast Markdown and Readme preview engine.
   - GitHub-flavored Markdown, LaTeX math rendering, Mermaid diagram visualizer.
   - Split view, live editing, table of contents, in-doc search, workspace navigation, PDF/HTML export.
@@ -39,4 +39,4 @@ In-depth technical writing focusing on system design, database internals, and pe
 - [Website](https://bysakib.com)
 - [Contact Form](https://bysakib.com/#contact)
 - [Blog Index](https://bysakib.com/blog)
-- [Tools Hub](https://bysakib.com/tools)
+- [Tools Hub](https://toolify.bysakib.com)

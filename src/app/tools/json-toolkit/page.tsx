@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { JsonToolkitContainer } from "@/components/tools/json-toolkit/json-toolkit-container";
-import { SITE_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Free, fast, client-side JSON toolkit to format, validate, minify JSON, and generate clean TypeScript types and interfaces from JSON payloads instantly.",
   alternates: {
-    canonical: `${SITE_URL}/tools/json-toolkit`,
+    canonical: `${TOOLIFY_URL}/json-toolkit`,
   },
   openGraph: {
     title: "JSON Toolkit — Formatter, Validator & TypeScript Generator",
     description:
       "Format, validate, minify JSON, and generate clean TypeScript interfaces with error line tracking and custom root naming.",
-    url: `${SITE_URL}/tools/json-toolkit`,
+    url: `${TOOLIFY_URL}/json-toolkit`,
     type: "website",
     images: [
       {
@@ -41,7 +41,7 @@ export default function JsonToolkitPage() {
     name: "JSON Toolkit",
     description:
       "Client-side JSON developer toolkit for formatting, syntax validation, minification, and JSON to TypeScript code generation.",
-    url: `${SITE_URL}/tools/json-toolkit`,
+    url: `${TOOLIFY_URL}/json-toolkit`,
     applicationCategory: "DeveloperApplication",
     featureList: [
       "JSON Formatter (2/4 spaces, Tab, Key Sorting)",

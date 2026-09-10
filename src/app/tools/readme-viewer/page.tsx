@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/shared/navbar";
 import { MdViewerContainer } from "@/components/tools/md-viewer/md-viewer-container";
-import { SITE_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Free, secure, ultra-fast online Markdown and Readme file viewer. Supports GitHub-style code blocks, LaTeX math formulas, Mermaid graphs, split view, search, workspace folder explorer, and PDF/HTML export.",
   alternates: {
-    canonical: `${SITE_URL}/tools/readme-viewer`,
+    canonical: `${TOOLIFY_URL}/readme-viewer`,
   },
   openGraph: {
     title: "README & Markdown File Viewer | Developer Tools",
     description:
       "Ultra-fast online Markdown & Readme file viewer with GitHub code blocks, LaTeX math formulas, Mermaid diagram visualizer, split view, and PDF/HTML export.",
-    url: `${SITE_URL}/tools/readme-viewer`,
+    url: `${TOOLIFY_URL}/readme-viewer`,
     type: "website",
     images: [
       {
@@ -40,7 +40,7 @@ export default function ReadmeViewerPage() {
     name: "README & Markdown File Viewer",
     description:
       "Browser-based Markdown & README file preview engine with syntax highlighting, LaTeX math, Mermaid diagrams, workspace navigation, and PDF/HTML export.",
-    url: `${SITE_URL}/tools/readme-viewer`,
+    url: `${TOOLIFY_URL}/readme-viewer`,
     applicationCategory: "DeveloperApplication",
     featureList: [
       "Drag & Drop File Picker & Paste Input",

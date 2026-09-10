@@ -4,7 +4,7 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import ImageCompressorContainer from "@/components/tools/image-compressor/image-compressor-container";
-import { SITE_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description:
     "Free, fast, client-side image compressor. Compress images to target file size (e.g. <500KB), remove EXIF data, convert WebP, AVIF, JPEG, HEIC, PNG with 100% browser privacy.",
   alternates: {
-    canonical: `${SITE_URL}/tools/image-compressor`,
+    canonical: `${TOOLIFY_URL}/image-compressor`,
   },
   openGraph: {
     title: "Image Compressor & Optimizer | Browser Developer Tools",
     description:
       "Compress, resize, and convert images directly inside your browser. Target size compression, before/after comparison, EXIF stripping, and batch ZIP export.",
-    url: `${SITE_URL}/tools/image-compressor`,
+    url: `${TOOLIFY_URL}/image-compressor`,
     type: "website",
     images: [
       {
@@ -43,7 +43,7 @@ export default function ImageCompressorPage() {
     name: "Image Compressor & Optimizer",
     description:
       "Fast, private, client-side browser image compression & format converter supporting JPG, PNG, WebP, AVIF, HEIC, GIF, and SVG.",
-    url: `${SITE_URL}/tools/image-compressor`,
+    url: `${TOOLIFY_URL}/image-compressor`,
     applicationCategory: "DeveloperApplication",
     featureList: [
       "Target Size Compression",
@@ -66,7 +66,7 @@ export default function ImageCompressorPage() {
         {/* Back Link */}
         <div className="mb-6">
           <Link
-            href="/tools"
+            href="/"
             className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

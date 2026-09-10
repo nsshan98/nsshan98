@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog/posts";
 import { getAllCaseStudies } from "@/lib/case-studies/case-studies";
-import { SITE_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -41,25 +41,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/tools`,
+      url: TOOLIFY_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/tools/image-compressor`,
+      url: `${TOOLIFY_URL}/image-compressor`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
     },
     {
-      url: `${SITE_URL}/tools/json-toolkit`,
+      url: `${TOOLIFY_URL}/json-toolkit`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
     },
     {
-      url: `${SITE_URL}/tools/readme-viewer`,
+      url: `${TOOLIFY_URL}/readme-viewer`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,

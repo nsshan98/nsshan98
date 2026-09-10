@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FileText, Braces, Image as ImageIcon, Sparkles, ArrowRight, ShieldCheck, Zap, Layers } from "lucide-react";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
-import { SITE_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateToolsListJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Explore a collection of modern, client-side developer tools including Image Compressor, JSON Toolkit, and Readme & Markdown Viewer. 100% private with zero server uploads.",
   alternates: {
-    canonical: `${SITE_URL}/tools`,
+    canonical: TOOLIFY_URL,
   },
   openGraph: {
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
       "A collection of modern, fast, and secure developer utilities. Image Compressor, JSON Toolkit, and README Viewer — running 100% in your browser.",
-    url: `${SITE_URL}/tools`,
+    url: TOOLIFY_URL,
     type: "website",
     images: [
       {
@@ -44,7 +44,7 @@ const tools = [
     description:
       "Compress, resize, and convert images (JPG, PNG, WebP, AVIF, HEIC, GIF, SVG) 100% in your browser. Features Target Size compression, Before/After slider, EXIF metadata stripping, and batch ZIP export.",
     icon: ImageIcon,
-    href: "/tools/image-compressor",
+    href: "/image-compressor",
     badge: "Available Now",
     badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
     features: [
@@ -61,7 +61,7 @@ const tools = [
     description:
       "A feature-rich, ultra-fast Markdown & Readme file viewer. Supports GitHub code blocks, LaTeX math, Mermaid diagrams, split view, search, workspace folder navigation, and export to PDF/HTML.",
     icon: FileText,
-    href: "/tools/readme-viewer",
+    href: "/readme-viewer",
     badge: "Available Now",
     badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
     features: [
@@ -78,7 +78,7 @@ const tools = [
     description:
       "Format, validate, minify JSON, and generate TypeScript interfaces/types from JSON with custom root naming, optional/readonly flags, and syntax error position tracking.",
     icon: Braces,
-    href: "/tools/json-toolkit",
+    href: "/json-toolkit",
     badge: "Available Now",
     badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
     features: [
