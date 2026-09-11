@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
     "Developer Tools",
+    "Cross-Device Clipboard",
     "Image Compressor",
     "JSON Toolkit",
     "Markdown Viewer",

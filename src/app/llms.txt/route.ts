@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAllPosts } from "@/lib/blog/posts";
 import { getAllCaseStudies } from "@/lib/case-studies/case-studies";
-import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL, CLIPY_URL } from "@/lib/blog/metadata";
 
 export async function GET() {
   const posts = getAllPosts();
@@ -34,6 +34,12 @@ export async function GET() {
 
 ## Developer Tools Suite (https://toolify.bysakib.com)
 All developer utilities are 100% client-side, running directly inside the user's browser with zero server uploads for complete data privacy.
+
+- [Clipy — Cross-Device Clipboard Sync](${CLIPY_URL}):
+  - Instant real-time clipboard synchronization between mobile, tablet, and PC.
+  - QR code device pairing with zero accounts or logins required.
+  - Transfer text snippets and images (up to 5 MB) with automatic device clipboard copying.
+  - Ephemeral in-memory socket relay with zero persistent cloud storage.
 
 - [Image Compressor & Optimizer](${TOOLIFY_URL}/image-compressor):
   - Compress, resize, and convert images (JPG, PNG, WebP, AVIF, HEIC, GIF, SVG).

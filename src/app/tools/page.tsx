@@ -1,22 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, Braces, Image as ImageIcon, Sparkles, ArrowRight, ShieldCheck, Zap, Layers } from "lucide-react";
+import {
+  FileText,
+  Braces,
+  Image as ImageIcon,
+  Sparkles,
+  ArrowRight,
+  ExternalLink,
+  ShieldCheck,
+  Zap,
+  Layers,
+  ClipboardCopy,
+} from "lucide-react";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
-import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL, CLIPY_URL } from "@/lib/blog/metadata";
 import { generateToolsListJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
   title: "Developer Tools Suite — Fast, Secure & Browser-Based Utilities",
   description:
-    "Explore a collection of modern, client-side developer tools including Image Compressor, JSON Toolkit, and Readme & Markdown Viewer. 100% private with zero server uploads.",
+    "Explore a collection of modern, client-side developer tools including Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and Readme & Markdown Viewer. 100% private with zero server uploads.",
   alternates: {
     canonical: TOOLIFY_URL,
   },
   openGraph: {
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
-      "A collection of modern, fast, and secure developer utilities. Image Compressor, JSON Toolkit, and README Viewer — running 100% in your browser.",
+      "A collection of modern, fast, and secure developer utilities. Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and README Viewer — running 100% in your browser.",
     url: TOOLIFY_URL,
     type: "website",
     images: [
@@ -32,12 +43,43 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
-      "Modern, fast, client-side developer utilities: Image Compressor, JSON Toolkit, and Readme Viewer.",
+      "Modern, fast, client-side developer utilities: Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and Readme Viewer.",
     images: [`${SITE_URL}/about-me.png`],
   },
 };
 
-const tools = [
+interface ToolItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  isExternal?: boolean;
+  badge: string;
+  badgeColor: string;
+  features: string[];
+  status: "active" | "development";
+}
+
+const tools: ToolItem[] = [
+  {
+    id: "clipy",
+    title: "Clipy — Cross-Device Clipboard",
+    description:
+      "Transfer text and small images real-time between your mobile, tablet, and PC without logins or accounts. Pair instantly via QR code with auto-copy sync and zero persistent storage.",
+    icon: ClipboardCopy,
+    href: CLIPY_URL,
+    isExternal: true,
+    badge: "Available Now",
+    badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+    features: [
+      "Instant QR Pairing (Phone & PC)",
+      "Real-Time Text & Image Push (up to 5 MB)",
+      "Auto-Copy to Device Clipboard",
+      "Zero Storage & Ephemeral Relay",
+    ],
+    status: "active",
+  },
   {
     id: "image-compressor",
     title: "Image Compressor & Optimizer",
@@ -153,7 +195,7 @@ export default function ToolsPage() {
         </div>
 
         {/* Tools Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {tools.map((tool) => {
             const Icon = tool.icon;
             const isActive = tool.status === "active";
@@ -204,13 +246,25 @@ export default function ToolsPage() {
                 </div>
 
                 {isActive ? (
-                  <Link
-                    href={tool.href}
-                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all shadow-md hover:shadow-cyan-500/20"
-                  >
-                    <span>Launch Tool</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  tool.isExternal ? (
+                    <a
+                      href={tool.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all shadow-md hover:shadow-cyan-500/20"
+                    >
+                      <span>Launch Tool</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={tool.href}
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all shadow-md hover:shadow-cyan-500/20"
+                    >
+                      <span>Launch Tool</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  )
                 ) : (
                   <button
                     disabled

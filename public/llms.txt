@@ -12,6 +12,12 @@
 ## Developer Tools Suite (`https://toolify.bysakib.com`)
 All developer utilities are 100% client-side, running directly inside the user's browser with zero server uploads for complete data privacy.
 
+- [Clipy — Cross-Device Clipboard Sync](https://clipy.bysakib.com):
+  - Instant real-time clipboard synchronization between mobile, tablet, and PC.
+  - QR code device pairing with zero accounts or logins required.
+  - Transfer text snippets and images (up to 5 MB) with automatic device clipboard copying.
+  - Ephemeral in-memory socket relay with zero persistent cloud storage.
+
 - [Image Compressor & Optimizer](https://toolify.bysakib.com/image-compressor):
   - Compress, resize, and convert images (JPG, PNG, WebP, AVIF, HEIC, GIF, SVG).
   - Target size compression (e.g. compress to < 500 KB).

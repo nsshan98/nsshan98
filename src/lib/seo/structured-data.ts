@@ -1,4 +1,4 @@
-import { SITE_URL, TOOLIFY_URL, AUTHOR_DEFAULT } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL, CLIPY_URL, AUTHOR_DEFAULT } from "@/lib/blog/metadata";
 
 export function generatePersonJsonLd() {
   return {
@@ -84,24 +84,30 @@ export function generateToolsListJsonLd() {
     "@type": "ItemList",
     name: "Developer Tools Suite by Nazmus Sakib",
     description:
-      "A collection of ultra-fast, 100% client-side browser developer tools including Image Compressor, JSON Toolkit, and Readme Viewer.",
+      "A collection of ultra-fast, 100% client-side browser developer tools including Cross-Device Clipboard, Image Compressor, JSON Toolkit, and Readme Viewer.",
     url: TOOLIFY_URL,
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
+        name: "Clipy — Cross-Device Clipboard Sync",
+        url: CLIPY_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
         name: "Image Compressor & Optimizer",
         url: `${TOOLIFY_URL}/image-compressor`,
       },
       {
         "@type": "ListItem",
-        position: 2,
+        position: 3,
         name: "JSON Toolkit",
         url: `${TOOLIFY_URL}/json-toolkit`,
       },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 4,
         name: "README & Markdown Viewer",
         url: `${TOOLIFY_URL}/readme-viewer`,
       },

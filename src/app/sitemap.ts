@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog/posts";
 import { getAllCaseStudies } from "@/lib/case-studies/case-studies";
-import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
+import { SITE_URL, TOOLIFY_URL, CLIPY_URL } from "@/lib/blog/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: CLIPY_URL,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${TOOLIFY_URL}/image-compressor`,
