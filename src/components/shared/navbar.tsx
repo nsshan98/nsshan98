@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 
 const menuItems = [
   { label: "Home", href: "/#home" },
@@ -20,7 +21,8 @@ const menuItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mainDomain, setMainDomain] = useState<string>("");
+  const [mainDomain, setMainDomain] = useState<string>(SITE_URL);
+  const [toolifyDomain, setToolifyDomain] = useState<string>(TOOLIFY_URL);
   const [isSubdomain, setIsSubdomain] = useState<boolean>(false);
 
   useEffect(() => {
@@ -43,6 +45,14 @@ export default function Navbar() {
       if (isSub) {
         const rootHost = host.replace(/^toolify\./i, "");
         setMainDomain(`${window.location.protocol}//${rootHost}`);
+        setToolifyDomain(`${window.location.protocol}//${host}`);
+      } else {
+        let baseHost = host;
+        if (baseHost.startsWith("www.")) {
+          baseHost = baseHost.slice(4);
+        }
+        setToolifyDomain(`${window.location.protocol}//toolify.${baseHost}`);
+        setMainDomain(`${window.location.protocol}//${host}`);
       }
     }
 
@@ -54,8 +64,15 @@ export default function Navbar() {
     if (isSubdomain) {
       if (href === "/tools") return "/";
       return `${mainDomain}${href}`;
+    } else {
+      if (href === "/tools") return toolifyDomain;
+      return href;
     }
-    return href;
+  };
+
+  const isCrossDomain = (href: string) => {
+    const target = getItemHref(href);
+    return target.startsWith("http://") || target.startsWith("https://");
   };
 
   return (
@@ -76,23 +93,12 @@ export default function Navbar() {
               isScrolled ? "space-x-4 md:space-x-6" : "space-x-8 md:space-x-12"
             )}
           >
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={getItemHref(item.href)}
-                  prefetch={false}
-                  className={cn(
-                    "relative font-medium text-amber-50 transition-all duration-300 ease-in-out  hover:text-cyan-400 group",
-                    isScrolled
-                      ? "text-sm text-white py-2 px-3 rounded-md hover:bg-accent hover:text-black"
-                      : "text-base md:text-lg py-3 px-4"
-                  )}
-                  style={{
-                    transitionDelay: `${index * 50}ms`,
-                  }}
-                >
+            {menuItems.map((item, index) => {
+              const targetHref = getItemHref(item.href);
+              const crossDomain = isCrossDomain(item.href);
+              const linkContent = (
+                <>
                   {item.label}
-
                   <span
                     className={cn(
                       "absolute -bottom-1 left-0 h-0.5 bg-cyan-400 transition-all duration-300",
@@ -101,9 +107,42 @@ export default function Navbar() {
                         : "w-full transform scale-x-0 group-hover:scale-x-100"
                     )}
                   />
-                </Link>
-              </li>
-            ))}
+                </>
+              );
+              const linkClass = cn(
+                "relative font-medium text-amber-50 transition-all duration-300 ease-in-out hover:text-cyan-400 group",
+                isScrolled
+                  ? "text-sm text-white py-2 px-3 rounded-md hover:bg-accent hover:text-black"
+                  : "text-base md:text-lg py-3 px-4"
+              );
+
+              return (
+                <li key={index}>
+                  {crossDomain ? (
+                    <a
+                      href={targetHref}
+                      className={linkClass}
+                      style={{
+                        transitionDelay: `${index * 50}ms`,
+                      }}
+                    >
+                      {linkContent}
+                    </a>
+                  ) : (
+                    <Link
+                      href={targetHref}
+                      prefetch={false}
+                      className={linkClass}
+                      style={{
+                        transitionDelay: `${index * 50}ms`,
+                      }}
+                    >
+                      {linkContent}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           <div className="md:hidden">
@@ -148,17 +187,33 @@ export default function Navbar() {
           }`}
         >
           <nav className="flex flex-col p-6 gap-2">
-            {menuItems.map((item, index) => (
-              <Link
-                key={index}
-                href={getItemHref(item.href)}
-                prefetch={false}
-                className="text-muted-foreground hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 py-3 px-4 rounded-lg border-b border-border/50 hover:border-cyan-400/30 last:border-b-0"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {menuItems.map((item, index) => {
+              const targetHref = getItemHref(item.href);
+              const crossDomain = isCrossDomain(item.href);
+              const mobileLinkClass =
+                "text-muted-foreground hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 py-3 px-4 rounded-lg border-b border-border/50 hover:border-cyan-400/30 last:border-b-0";
+
+              return crossDomain ? (
+                <a
+                  key={index}
+                  href={targetHref}
+                  className={mobileLinkClass}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={index}
+                  href={targetHref}
+                  prefetch={false}
+                  className={mobileLinkClass}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>

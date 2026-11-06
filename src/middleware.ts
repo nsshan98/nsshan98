@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const TOOL_ROUTES = ['/image-compressor', '/json-toolkit', '/readme-viewer'];
+
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get('host') || '';
@@ -23,10 +25,17 @@ export function middleware(request: NextRequest) {
     url.pathname = `/tools${url.pathname === '/' ? '' : url.pathname}`;
     return NextResponse.rewrite(url);
   } else {
-    // On the main domain (e.g., nsshan.com or localhost:3000):
-    // When visiting /tools or /tools/*, redirect immediately to toolify subdomain
-    if (url.pathname.startsWith('/tools')) {
-      const cleanPath = url.pathname.replace(/^\/tools/, '') || '/';
+    // On the main domain (e.g., bysakib.com or localhost:3000):
+    // 1. When visiting /tools or /tools/*, redirect immediately to toolify subdomain
+    // 2. When visiting any direct tool route (/image-compressor, /json-toolkit, /readme-viewer), redirect to toolify subdomain
+    const isDirectToolRoute = TOOL_ROUTES.some(
+      (route) => url.pathname === route || url.pathname.startsWith(`${route}/`)
+    );
+
+    if (url.pathname.startsWith('/tools') || isDirectToolRoute) {
+      const cleanPath = url.pathname.startsWith('/tools')
+        ? url.pathname.replace(/^\/tools/, '') || '/'
+        : url.pathname;
 
       // Build target hostname: toolify.yourdomain.com or toolify.localhost:3000
       let baseHost = host;
