@@ -96,7 +96,7 @@
 * **Actual Output:**
   ```text
   lo               UNKNOWN        127.0.0.1/8 ::1/128 
-  eth0             UP             169.58.108.95/24 2a02:c207:.../64
+  eth0             UP             101.0.101.10/24 2a02:c207:.../64
   ```
 * **Status:** Still Recommended | MUST HAVE
 
@@ -225,7 +225,7 @@
 * **Purpose:** Authorize public key on remote host.
 * **Command:**
   ```bash
-  ssh-copy-id -i ~/.ssh/contabo-vps.pub deploy@169.58.108.95
+  ssh-copy-id -i ~/.ssh/contabo-vps.pub deploy@101.0.101.10
   ```
 * **Actual Output:**
   ```text
@@ -242,7 +242,7 @@
 * **Purpose:** Verify passwordless key login prior to disabling passwords.
 * **Command:**
   ```bash
-  ssh -i ~/.ssh/contabo-vps deploy@169.58.108.95
+  ssh -i ~/.ssh/contabo-vps deploy@101.0.101.10
   ```
 * **Actual Output:** Logged in directly to `deploy@vmi...:~$`.
 * **Status:** Still Recommended | MUST HAVE

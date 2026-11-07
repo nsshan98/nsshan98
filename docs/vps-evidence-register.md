@@ -11,7 +11,7 @@
 | **Contabo VPS Provisioning (4 vCPU, 8GB RAM, 96GB Disk)** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | `nproc` (4), `free -h` (7.8Gi), `df -h` (96G) |
 | **Ubuntu 24.04.5 LTS Deployment** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | `cat /etc/os-release` (`Noble Numbat`) |
 | **Initial Root SSH Access via Password** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | Connected over port 22 via Contabo root credentials |
-| **System Hardware & Network Audit** | **ACTUALLY EXECUTED AND VERIFIED** | RECOMMENDED | `ip -br a` (`eth0 169.58.108.95`) |
+| **System Hardware & Network Audit** | **ACTUALLY EXECUTED AND VERIFIED** | RECOMMENDED | `ip -br a` (`eth0 101.0.101.10`) |
 | **Dedicated `deploy` User Account Creation** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | `adduser deploy` completed |
 | **Sudo Privilege Delegation** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | `usermod -aG sudo deploy`, `id deploy` verified |
 | **Sudo Execution Verification** | **ACTUALLY EXECUTED AND VERIFIED** | MUST HAVE | `sudo whoami` returned `root` |

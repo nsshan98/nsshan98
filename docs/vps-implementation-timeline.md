@@ -53,7 +53,7 @@
   * **Compute:** 4 vCPU cores (`nproc` confirmed `4`)
   * **Memory:** 7.8 GiB total (`free -h` showed 431 MiB used, 7.3 GiB free)
   * **Disk:** 96 GiB root partition on NVMe/SSD (`/dev/sda1`, 2.3 GiB used)
-  * **Network Interface:** `eth0` with static public IPv4 (recorded as `169.58.108.95` placeholder)
+  * **Network Interface:** `eth0` with static public IPv4 (recorded as `101.0.101.10` placeholder)
 
 ---
 

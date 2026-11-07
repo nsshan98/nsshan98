@@ -14,23 +14,29 @@ import "prismjs/components/prism-tsx";
 import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
-  code: string;
+  code?: string;
+  children?: React.ReactNode;
   language?: string;
   filename?: string;
+  title?: string;
   showLineNumbers?: boolean;
   className?: string;
 }
 
 export default function CodeBlock({
   code,
+  children,
   language = "typescript",
   filename,
+  title,
   showLineNumbers = false,
   className,
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
-  const cleanCode = code.trim();
+  const rawCode = code ?? (typeof children === "string" ? children : Array.isArray(children) ? children.join("") : "");
+  const cleanCode = rawCode.trim();
+  const displayFilename = filename ?? title;
 
   const handleCopy = async () => {
     try {
@@ -66,8 +72,8 @@ export default function CodeBlock({
       <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-4 py-2.5 text-xs text-slate-400">
         <div className="flex items-center gap-2 font-mono">
           <Code2 className="h-4 w-4 text-cyan-400" />
-          {filename ? (
-            <span className="font-medium text-slate-300">{filename}</span>
+          {displayFilename ? (
+            <span className="font-medium text-slate-300">{displayFilename}</span>
           ) : (
             <span className="uppercase tracking-wider text-slate-400">{language}</span>
           )}
