@@ -18,7 +18,7 @@ export function middleware(request: NextRequest) {
     if (url.pathname.startsWith('/tools')) {
       const cleanPath = url.pathname.replace(/^\/tools/, '') || '/';
       url.pathname = cleanPath;
-      return NextResponse.redirect(url);
+      return NextResponse.redirect(url, 308);
     }
 
     // Rewrite toolify.domain.com/<path> internally to /tools/<path>
@@ -48,7 +48,7 @@ export function middleware(request: NextRequest) {
         `${cleanPath}${url.search}`,
         `${url.protocol}//${toolifyHost}`
       );
-      return NextResponse.redirect(redirectUrl);
+      return NextResponse.redirect(redirectUrl, 308);
     }
   }
 

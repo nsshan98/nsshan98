@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Browser Image Compressor & Optimizer",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Image Compressor & Optimizer | Browser Developer Tools",
     description:
       "Free, private, client-side image compression tool. Convert JPG, PNG, WebP, AVIF, HEIC with zero server uploads.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

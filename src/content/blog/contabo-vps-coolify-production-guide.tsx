@@ -30,8 +30,8 @@ export const post: BlogPostMeta = {
   ],
   readingTime: "45 min read",
   featured: true,
-  featuredImage: "/blog/contabo-vps-production-coolify-thumbnail.jpg",
-  featuredImageAlt: "Contabo VPS to Production with Coolify Complete Setup Guide",
+  featuredImage: "/blog/contabo-vps-coolify-advanced-hardening-thumbnail.jpg",
+  featuredImageAlt: "Contabo VPS to Production with Coolify Complete Setup & Security Guide",
   toc: [
     { id: "module-1-architecture", title: "Module 1: Architecture & Mental Model", level: 2 },
     { id: "module-2-prerequisites", title: "Module 2: Prerequisites & Hardware Planning", level: 2 },

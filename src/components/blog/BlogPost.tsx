@@ -73,7 +73,7 @@ export default function BlogPost({
               <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full bg-slate-800 border-2 border-cyan-500/50 flex items-center justify-center text-cyan-400">
                 {post.authorAvatar ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={post.authorAvatar} alt={post.author} className="h-full w-full object-cover" />
+                  <img src={post.authorAvatar} alt={post.author} width={56} height={56} className="h-full w-full object-cover" />
                 ) : (
                   <User className="h-7 w-7" />
                 )}

@@ -58,7 +58,7 @@ export default function BlogHeader({ post }: BlogHeaderProps) {
           <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold">
             {post.authorAvatar ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={post.authorAvatar} alt={post.author} className="h-full w-full object-cover" />
+              <img src={post.authorAvatar} alt={post.author} width={40} height={40} className="h-full w-full object-cover" />
             ) : (
               <User className="h-5 w-5" />
             )}

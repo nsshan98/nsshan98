@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Developer Tools Suite — Nazmus Sakib",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
       "Modern, fast, client-side developer utilities: Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and Readme Viewer.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

@@ -59,6 +59,12 @@ export function generateArticleJsonLd(post: BlogPostMeta) {
       : `${SITE_URL}${post.featuredImage}`
     : `${SITE_URL}/og-image.png`;
 
+  const authorAvatarUrl = post.authorAvatar
+    ? post.authorAvatar.startsWith("http")
+      ? post.authorAvatar
+      : `${SITE_URL}${post.authorAvatar}`
+    : `${SITE_URL}/me.jpeg`;
+
   return {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -67,15 +73,22 @@ export function generateArticleJsonLd(post: BlogPostMeta) {
     image: [ogImage],
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
+    inLanguage: "en-US",
     author: {
       "@type": "Person",
       name: post.author || AUTHOR_DEFAULT,
       url: SITE_URL,
+      image: authorAvatarUrl,
+      jobTitle: post.authorRole || "Curious Technologist",
     },
     publisher: {
       "@type": "Person",
       name: AUTHOR_DEFAULT,
       url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/me.jpeg`,
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

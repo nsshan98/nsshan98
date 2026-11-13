@@ -89,7 +89,7 @@ const HeroSection = () => {
                 className="text-sm tracking-widest uppercase text-white/70 font-light"
                 style={{ letterSpacing: '0.15em' }}
               >
-                Your Frontend Development Partner
+                Full-Stack Engineer &amp; Software Architect
               </span>
               <span className="text-lg opacity-80">🏆</span>
             </div>
@@ -100,15 +100,14 @@ const HeroSection = () => {
             >
               Code that ships.
               <br />
-              Design that
+              Systems that
               <br />
-              endures.
+              scale.
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-md font-light">
-              Frontend developer for enterprises, founders and startups.
-              I transform complexity into elegant, performant interfaces.
+              Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and browser-based developer tools.
             </p>
 
             {/* CTA Buttons */}

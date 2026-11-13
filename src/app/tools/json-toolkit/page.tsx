@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "JSON Toolkit Developer Tool",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "JSON Toolkit — Formatter, Validator & TypeScript Generator",
     description:
       "Format, validate, minify JSON, and convert JSON payloads to TypeScript types directly in your browser.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

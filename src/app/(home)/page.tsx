@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Nazmus Sakib — Full-Stack Software Engineer",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Nazmus Sakib — Full-Stack Software Engineer",
     description:
       "Portfolio, engineering projects, backend architecture experience, and developer tools by Nazmus Sakib.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

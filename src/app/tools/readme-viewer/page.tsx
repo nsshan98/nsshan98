@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "README & Markdown File Viewer",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "README & Markdown File Viewer | Developer Tools",
     description:
       "Ultra-fast online Markdown viewer with LaTeX math, Mermaid diagrams, split view, search, and PDF export.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

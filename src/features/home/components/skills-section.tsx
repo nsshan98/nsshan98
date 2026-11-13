@@ -307,7 +307,7 @@ export default function SkillsSection() {
         }
       `}</style>
     <section
-      id="technical-skills"
+      id="skills"
       className="py-24 px-6 relative overflow-hidden"
       style={{
         background: "linear-gradient(180deg, #0a0a0a 0%, #0f1218 50%, #0a0a0a 100%)",

@@ -10,7 +10,7 @@ import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 const menuItems = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about-me" },
-  { label: "Services", href: "/#services" },
+  { label: "Skills", href: "/#skills" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },

@@ -6,7 +6,11 @@ export function generatePersonJsonLd() {
     "@type": "Person",
     name: AUTHOR_DEFAULT,
     url: SITE_URL,
+    image: `${SITE_URL}/me.jpeg`,
     jobTitle: "Full-Stack Engineer & Software Architect",
+    description:
+      "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and privacy-first browser developer tools.",
+    email: "mailto:hello@bysakib.com",
     sameAs: [
       "https://github.com/nsshan98",
       "https://linkedin.com/in/nsshan98",
@@ -20,6 +24,7 @@ export function generatePersonJsonLd() {
       "TypeScript",
       "System Design",
       "Web Performance",
+      "Docker & Coolify",
     ],
   };
 }

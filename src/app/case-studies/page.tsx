@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Technical Case Studies — Nazmus Sakib",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Engineering Case Studies | Nazmus Sakib",
     description:
       "Real-world technical case studies detailing architecture decisions, performance metrics, and business outcomes.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 

@@ -55,10 +55,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${SITE_URL}/about-me.png`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Nazmus Sakib — Full-Stack Engineer",
+        alt: "Nazmus Sakib — Full-Stack Engineer & Software Architect",
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Nazmus Sakib — Full-Stack Engineer & Technical Writer",
     description:
       "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and developer tools.",
-    images: [`${SITE_URL}/about-me.png`],
+    images: [`${SITE_URL}/og-image.png`],
     creator: "@nsshan98",
   },
   robots: {
@@ -94,7 +94,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <head>
-        <meta name="google-site-verification" content="p947cnm0CzaduoGfIeNJh5VTf19T-c47eRxwLEM9XP4" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

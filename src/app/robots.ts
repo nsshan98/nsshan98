@@ -11,13 +11,16 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: [
-          "GPTBot",
+          "OAI-SearchBot",
           "ChatGPT-User",
+          "GPTBot",
+          "Claude-SearchBot",
           "ClaudeBot",
           "Claude-Web",
           "PerplexityBot",
-          "Google-Extended",
+          "Applebot",
           "Applebot-Extended",
+          "Google-Extended",
           "Bytespider",
           "CCBot",
           "anthropic-ai",
@@ -28,5 +31,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

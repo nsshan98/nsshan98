@@ -96,8 +96,8 @@ const AboutSection = () => {
                 }}
               >
                 <Image
-                  src="/about-me.png"
-                  alt="Nazmus Sakib"
+                  src="/about-me.webp"
+                  alt="Nazmus Sakib — Full-Stack Engineer & Software Architect"
                   fill
                   className="object-cover"
                   sizes="360px"
@@ -145,19 +145,18 @@ const AboutSection = () => {
             {/* Description paragraphs */}
             <div className="space-y-5 text-slate-300 leading-relaxed text-base">
               <p>
-                Welcome to my portfolio! I&apos;m Nazmus Sakib, a passionate Frontend
-                Developer dedicated to creating seamless and visually engaging
-                digital experiences. With hands-on experience, I specialize in
-                building intuitive interfaces that enhance usability and user
-                satisfaction.
+                Welcome to my portfolio! I&apos;m Nazmus Sakib, a passionate Full-Stack
+                Software Engineer &amp; System Architect dedicated to creating resilient
+                architectures, performant systems, and engaging digital experiences. With
+                deep hands-on experience in backend engineering, PostgreSQL internals, and
+                modern Next.js applications, I specialize in transforming architectural complexity
+                into elegant, reliable software.
               </p>
               <p>
-                My skills include modern JavaScript frameworks, responsive design,
-                and component-driven architecture, ensuring that each interface is
-                both aesthetically pleasing and functionally efficient. I have worked
-                on diverse projects, including web platforms and interactive
-                dashboards, always focusing on user-centered solutions that drive
-                engagement.
+                My expertise spans high-throughput APIs, database indexing and MVCC optimization,
+                containerized deployments with Docker and Coolify, and client-side browser engines.
+                I build both robust infrastructure and intuitive interfaces that deliver measurable
+                performance and user satisfaction.
               </p>
             </div>
 
