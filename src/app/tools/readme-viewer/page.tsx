@@ -5,17 +5,18 @@ import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "README & Markdown File Viewer | GitHub Style & Math Support",
+  title: "README & Markdown Viewer",
   description:
-    "Free, secure, ultra-fast online Markdown and Readme file viewer. Supports GitHub-style code blocks, LaTeX math formulas, Mermaid graphs, split view, search, workspace folder explorer, and PDF/HTML export.",
+    "Fast, private browser Markdown viewer supporting GitHub Flavored Markdown, LaTeX math formulas, and Mermaid diagrams.",
   alternates: {
     canonical: `${TOOLIFY_URL}/readme-viewer`,
   },
   openGraph: {
-    title: "README & Markdown File Viewer | Developer Tools",
+    title: "README & Markdown Viewer | Nazmus Sakib",
     description:
-      "Ultra-fast online Markdown & Readme file viewer with GitHub code blocks, LaTeX math formulas, Mermaid diagram visualizer, split view, and PDF/HTML export.",
+      "Fast, private browser Markdown viewer supporting GitHub Flavored Markdown, LaTeX math formulas, and Mermaid diagrams.",
     url: `${TOOLIFY_URL}/readme-viewer`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "README & Markdown File Viewer | Developer Tools",
+    title: "README & Markdown Viewer | Nazmus Sakib",
     description:
-      "Ultra-fast online Markdown viewer with LaTeX math, Mermaid diagrams, split view, search, and PDF export.",
+      "Fast, private browser Markdown viewer supporting GitHub Flavored Markdown, LaTeX math formulas, and Mermaid diagrams.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

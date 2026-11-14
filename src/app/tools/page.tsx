@@ -18,17 +18,18 @@ import { SITE_URL, TOOLIFY_URL, CLIPY_URL } from "@/lib/blog/metadata";
 import { generateToolsListJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Developer Tools Suite — Fast, Secure & Browser-Based Utilities",
+  title: "Developer Tools Suite",
   description:
-    "Explore a collection of modern, client-side developer tools including Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and Readme & Markdown Viewer. 100% private with zero server uploads.",
+    "Fast, private developer tools running 100% in your browser: Cross-Device Clipboard, Image Compressor, and JSON Toolkit.",
   alternates: {
     canonical: TOOLIFY_URL,
   },
   openGraph: {
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
-      "A collection of modern, fast, and secure developer utilities. Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and README Viewer — running 100% in your browser.",
+      "Fast, private developer tools running 100% in your browser: Cross-Device Clipboard, Image Compressor, and JSON Toolkit.",
     url: TOOLIFY_URL,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Developer Tools Suite | Nazmus Sakib",
     description:
-      "Modern, fast, client-side developer utilities: Cross-Device Clipboard Sync, Image Compressor, JSON Toolkit, and Readme Viewer.",
+      "Fast, private developer tools running 100% in your browser: Cross-Device Clipboard, Image Compressor, and JSON Toolkit.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

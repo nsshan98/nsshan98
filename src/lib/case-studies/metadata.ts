@@ -11,7 +11,7 @@ export function generateCaseStudyMetadata(cs: CaseStudyMeta): Metadata {
     : `${SITE_URL}/og-image.png`;
 
   return {
-    title: `${cs.title} | Technical Case Study by ${AUTHOR_DEFAULT}`,
+    title: `${cs.title} — Case Study`,
     description: cs.description,
     authors: [{ name: AUTHOR_DEFAULT }],
     keywords: [cs.industry, cs.category, ...cs.tags, ...cs.techStack],
@@ -22,7 +22,7 @@ export function generateCaseStudyMetadata(cs: CaseStudyMeta): Metadata {
       title: `${cs.title} — Case Study`,
       description: cs.description,
       url,
-      siteName: `${AUTHOR_DEFAULT} Engineering Portfolio & Case Studies`,
+      siteName: AUTHOR_DEFAULT,
       images: [
         {
           url: ogImage,

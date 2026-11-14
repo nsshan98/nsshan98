@@ -8,17 +8,18 @@ import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Online Image Compressor & Converter (JPG, PNG, WebP, AVIF, HEIC)",
+  title: "Image Compressor & Optimizer",
   description:
-    "Free, fast, client-side image compressor. Compress images to target file size (e.g. <500KB), remove EXIF data, convert WebP, AVIF, JPEG, HEIC, PNG with 100% browser privacy.",
+    "Fast, private browser image compressor and converter for JPG, PNG, WebP, AVIF, and HEIC with zero server uploads.",
   alternates: {
     canonical: `${TOOLIFY_URL}/image-compressor`,
   },
   openGraph: {
-    title: "Image Compressor & Optimizer | Browser Developer Tools",
+    title: "Image Compressor & Optimizer | Nazmus Sakib",
     description:
-      "Compress, resize, and convert images directly inside your browser. Target size compression, before/after comparison, EXIF stripping, and batch ZIP export.",
+      "Compress, resize, and convert images directly inside your browser with zero server uploads and full privacy.",
     url: `${TOOLIFY_URL}/image-compressor`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Image Compressor & Optimizer | Browser Developer Tools",
+    title: "Image Compressor & Optimizer | Nazmus Sakib",
     description:
       "Free, private, client-side image compression tool. Convert JPG, PNG, WebP, AVIF, HEIC with zero server uploads.",
     images: [`${SITE_URL}/og-image.png`],

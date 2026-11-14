@@ -9,17 +9,18 @@ import { Sparkles, Search, Tag, Layers } from "lucide-react";
 import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
-  title: "Blog & Technical Writing | Nazmus Sakib",
+  title: "Technical Blog & Architecture",
   description:
-    "In-depth technical articles on backend architecture, database internals, PostgreSQL MVCC, Next.js performance, and modern web development.",
+    "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    title: "Technical Blog & Engineering Insights | Nazmus Sakib",
+    title: "Technical Blog & Architecture | Nazmus Sakib",
     description:
-      "In-depth technical articles on backend architecture, database internals, PostgreSQL, and web development.",
+      "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
     url: `${SITE_URL}/blog`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Technical Blog | Nazmus Sakib",
     description:
-      "In-depth technical articles on backend architecture, database internals, PostgreSQL, and web development.",
+      "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

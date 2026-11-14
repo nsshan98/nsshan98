@@ -6,17 +6,18 @@ import { SITE_URL, TOOLIFY_URL } from "@/lib/blog/metadata";
 import { generateSoftwareAppJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "JSON Toolkit — Formatter, Validator, Minifier & TypeScript Generator",
+  title: "JSON Toolkit & TS Generator",
   description:
-    "Free, fast, client-side JSON toolkit to format, validate, minify JSON, and generate clean TypeScript types and interfaces from JSON payloads instantly.",
+    "Format, validate, minify JSON, and generate clean TypeScript interfaces in your browser with zero server uploads.",
   alternates: {
     canonical: `${TOOLIFY_URL}/json-toolkit`,
   },
   openGraph: {
-    title: "JSON Toolkit — Formatter, Validator & TypeScript Generator",
+    title: "JSON Toolkit & TS Generator | Nazmus Sakib",
     description:
-      "Format, validate, minify JSON, and generate clean TypeScript interfaces with error line tracking and custom root naming.",
+      "Format, validate, minify JSON, and generate clean TypeScript interfaces in your browser with zero server uploads.",
     url: `${TOOLIFY_URL}/json-toolkit`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSON Toolkit — Formatter, Validator & TypeScript Generator",
+    title: "JSON Toolkit & TS Generator | Nazmus Sakib",
     description:
       "Format, validate, minify JSON, and convert JSON payloads to TypeScript types directly in your browser.",
     images: [`${SITE_URL}/og-image.png`],

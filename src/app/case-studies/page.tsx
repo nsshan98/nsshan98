@@ -13,17 +13,18 @@ import { Sparkles, Search, Layers, Cpu } from "lucide-react";
 import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
-  title: "Engineering Case Studies | Nazmus Sakib",
+  title: "Engineering Case Studies",
   description:
-    "Real-world technical case studies showcasing backend architecture, high-throughput systems, database optimization, and full-stack project executions with measurable results.",
+    "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
   alternates: {
     canonical: `${SITE_URL}/case-studies`,
   },
   openGraph: {
-    title: "Engineering Case Studies & System Architecture | Nazmus Sakib",
+    title: "Engineering Case Studies | Nazmus Sakib",
     description:
-      "Real-world technical case studies detailing architecture decisions, performance metrics, and business outcomes.",
+      "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
     url: `${SITE_URL}/case-studies`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Engineering Case Studies | Nazmus Sakib",
     description:
-      "Real-world technical case studies detailing architecture decisions, performance metrics, and business outcomes.",
+      "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

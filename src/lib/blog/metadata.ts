@@ -16,7 +16,7 @@ export function generateBlogMetadata(post: BlogPostMeta): Metadata {
     : `${SITE_URL}/og-image.png`;
 
   return {
-    title: `${post.title} | ${post.author || AUTHOR_DEFAULT}`,
+    title: post.title,
     description: post.description,
     authors: [{ name: post.author || AUTHOR_DEFAULT }],
     keywords: [post.category, ...post.tags],
@@ -27,7 +27,7 @@ export function generateBlogMetadata(post: BlogPostMeta): Metadata {
       title: post.title,
       description: post.description,
       url,
-      siteName: `${AUTHOR_DEFAULT} Portfolio & Technical Blog`,
+      siteName: AUTHOR_DEFAULT,
       images: [
         {
           url: ogImage,

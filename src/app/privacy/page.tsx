@@ -6,17 +6,18 @@ import { ShieldCheck, Lock, Eye, Server, AlertCircle } from "lucide-react";
 import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy & Terms of Use | Nazmus Sakib",
+  title: "Privacy Policy & Terms",
   description:
-    "Privacy policy, client-side data guarantee, and terms of use for Nazmus Sakib's portfolio, engineering blog, and browser-based developer utilities.",
+    "Privacy policy and data guarantee for Nazmus Sakib's portfolio and browser developer tools: zero server storage.",
   alternates: {
     canonical: `${SITE_URL}/privacy`,
   },
   openGraph: {
-    title: "Privacy Policy & Terms of Use | Nazmus Sakib",
+    title: "Privacy Policy & Terms | Nazmus Sakib",
     description:
-      "Privacy policy and browser tools data privacy guarantee: 100% client-side execution with zero server storage.",
+      "Privacy policy and data guarantee for Nazmus Sakib's portfolio and browser developer tools: zero server storage.",
     url: `${SITE_URL}/privacy`,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [`${SITE_URL}/og-image.png`],
   },

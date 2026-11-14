@@ -10,17 +10,20 @@ import Footer from "@/components/shared/footer";
 import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
-  title: "Nazmus Sakib — Full-Stack Software Engineer & System Architect",
+  title: {
+    absolute: "Nazmus Sakib — Full-Stack Software Engineer",
+  },
   description:
-    "Explore the portfolio, engineering projects, skills, backend architecture experience, and browser-based developer tools by Nazmus Sakib.",
+    "Portfolio, backend architecture, PostgreSQL performance, and privacy-first browser tools by Nazmus Sakib.",
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
     title: "Nazmus Sakib — Full-Stack Software Engineer",
     description:
-      "Explore the portfolio, engineering projects, backend architecture experience, and browser-based developer tools by Nazmus Sakib.",
+      "Portfolio, backend architecture, PostgreSQL performance, and privacy-first browser tools by Nazmus Sakib.",
     url: SITE_URL,
+    siteName: "Nazmus Sakib",
     type: "website",
     images: [
       {
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nazmus Sakib — Full-Stack Software Engineer",
     description:
-      "Portfolio, engineering projects, backend architecture experience, and developer tools by Nazmus Sakib.",
+      "Portfolio, backend architecture, PostgreSQL performance, and developer tools by Nazmus Sakib.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

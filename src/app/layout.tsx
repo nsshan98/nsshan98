@@ -15,11 +15,11 @@ import { generatePersonJsonLd, generateWebSiteJsonLd } from "@/lib/seo/structure
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nazmus Sakib — Full-Stack Engineer & Technical Writer",
+    default: "Nazmus Sakib — Full-Stack Software Engineer",
     template: "%s | Nazmus Sakib",
   },
   description:
-    "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and browser-based developer tools.",
+    "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and privacy-first developer tools.",
   keywords: [
     "Nazmus Sakib",
     "Full-Stack Engineer",
@@ -41,16 +41,19 @@ export const metadata: Metadata = {
   publisher: AUTHOR_DEFAULT,
   alternates: {
     canonical: "./",
+    types: {
+      "application/rss+xml": `${SITE_URL}/feed.xml`,
+    },
   },
   verification: {
     google: "p947cnm0CzaduoGfIeNJh5VTf19T-c47eRxwLEM9XP4",
   },
   openGraph: {
-    title: "Nazmus Sakib — Full-Stack Engineer & Software Architect",
+    title: "Nazmus Sakib — Full-Stack Software Engineer",
     description:
-      "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and browser-based developer tools.",
+      "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and privacy-first developer tools.",
     url: SITE_URL,
-    siteName: "Nazmus Sakib Portfolio & Engineering Insights",
+    siteName: "Nazmus Sakib",
     locale: "en_US",
     type: "website",
     images: [
@@ -58,15 +61,15 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Nazmus Sakib — Full-Stack Engineer & Software Architect",
+        alt: "Nazmus Sakib — Full-Stack Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nazmus Sakib — Full-Stack Engineer & Technical Writer",
+    title: "Nazmus Sakib — Full-Stack Software Engineer",
     description:
-      "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and developer tools.",
+      "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and developer tools.",
     images: [`${SITE_URL}/og-image.png`],
     creator: "@nsshan98",
   },
@@ -92,7 +95,7 @@ export default function RootLayout({
   const websiteJsonLd = generateWebSiteJsonLd();
 
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -103,7 +106,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} antialiased`} suppressHydrationWarning>
         <GoogleAnalytics gaId="G-WY41S17HKR" />
         {children}
       </body>
