@@ -11,17 +11,17 @@ import { SITE_URL } from "@/lib/blog/metadata";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Nazmus Sakib — Full-Stack Software Engineer",
+    absolute: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
   },
   description:
-    "Portfolio, backend architecture, PostgreSQL performance, and privacy-first browser tools by Nazmus Sakib.",
+    "Portfolio, modern Next.js frontend architecture, client-side developer tools, and scalable full-stack systems by Nazmus Sakib.",
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    title: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
     description:
-      "Portfolio, backend architecture, PostgreSQL performance, and privacy-first browser tools by Nazmus Sakib.",
+      "Portfolio, modern Next.js frontend architecture, client-side developer tools, and scalable full-stack systems by Nazmus Sakib.",
     url: SITE_URL,
     siteName: "Nazmus Sakib",
     type: "website",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    title: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
     description:
-      "Portfolio, backend architecture, PostgreSQL performance, and developer tools by Nazmus Sakib.",
+      "Portfolio, modern Next.js frontend architecture, client-side developer tools, and scalable full-stack systems by Nazmus Sakib.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

@@ -15,14 +15,14 @@ import { SITE_URL } from "@/lib/blog/metadata";
 export const metadata: Metadata = {
   title: "Engineering Case Studies",
   description:
-    "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
+    "Case studies on frontend performance, client-side tools, backend architecture, and full-stack engineering.",
   alternates: {
     canonical: `${SITE_URL}/case-studies`,
   },
   openGraph: {
     title: "Engineering Case Studies | Nazmus Sakib",
     description:
-      "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
+      "Case studies on frontend performance, client-side tools, backend architecture, and full-stack engineering.",
     url: `${SITE_URL}/case-studies`,
     siteName: "Nazmus Sakib",
     type: "website",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Engineering Case Studies | Nazmus Sakib",
     description:
-      "Case studies on backend architecture, high-throughput systems, database scaling, and full-stack engineering.",
+      "Case studies on frontend performance, client-side tools, backend architecture, and full-stack engineering.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };

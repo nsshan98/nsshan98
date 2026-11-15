@@ -79,6 +79,20 @@ const skillCategories = [
         hoverBg: "#764ABC33"
       },
       {
+        name: "React Query",
+        icon: ReactQuery,
+        color: "#FF4154",
+        bg: "#FF415415",
+        hoverBg: "#FF415433"
+      },
+      {
+        name: "Tailwind CSS",
+        icon: TailwindIcon,
+        color: "#38B2AC",
+        bg: "#38B2AC15",
+        hoverBg: "#38B2AC33"
+      },
+      {
         name: "Material-UI",
         icon: MaterialUi,
         color: "#007FFF",
@@ -92,13 +106,6 @@ const skillCategories = [
         bg: "#FF555515",
         hoverBg: "#FF555533",
         invertOnDark: true
-      },
-      {
-        name: "Tailwind CSS",
-        icon: TailwindIcon,
-        color: "#38B2AC",
-        bg: "#38B2AC15",
-        hoverBg: "#38B2AC33"
       },
     ] as SkillItem[],
   },
@@ -183,13 +190,6 @@ const skillCategories = [
         bg: "#FFFFFF10",
         hoverBg: "#FFFFFF25",
         invertOnDark: true
-      },
-      {
-        name: "React Query",
-        icon: ReactQuery,
-        color: "#FF4154",
-        bg: "#FF415415",
-        hoverBg: "#FF415433"
       },
     ] as SkillItem[],
   },
@@ -301,8 +301,8 @@ export default function SkillsSection() {
             grid-template-areas:
               "frontend"
               "backend"
-              "tools"
-              "database" !important;
+              "database"
+              "tools" !important;
           }
         }
       `}</style>
@@ -320,8 +320,8 @@ export default function SkillsSection() {
             Technical Skills
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise across
-            different technologies and tools.
+            A comprehensive overview of my technical expertise, prioritized around
+            modern frontend architecture, scalable backends, and full-stack systems.
           </p>
         </div>
 

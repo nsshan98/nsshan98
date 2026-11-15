@@ -6,95 +6,95 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   "SHOW ALL",
-  "POS SOLUTIONS",
-  "TRACKER",
-  "PACKAGE",
-  "SERVICE",
+  "FRONTEND & WEB APPS",
+  "DEVELOPER TOOLS",
+  "FULL-STACK",
+  "PACKAGES",
 ];
 
 const projects = [
   {
     id: 1,
     title: "Bikroy+",
-    subTitle: "Simplifying POS, sales, and order management.",
+    subTitle: "High-performance POS, sales, and order management.",
     description:
-      "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-    technologies: ["Next.js", " React Hook Form", "Zod", "Material UI"],
+      "Full-stack POS and inventory solution with a responsive Next.js frontend, complex form validations (Zod), and real-time inventory management.",
+    technologies: ["Next.js", "React Hook Form", "Zod", "Material UI", "Node.js"],
     image: "/bikroy+.png",
     externalLink: "https://bikroyplus.com/",
-    categories: ["POS SOLUTIONS"],
+    categories: ["FRONTEND & WEB APPS", "FULL-STACK"],
   },
   {
     id: 2,
     title: "PdfGini",
-    subTitle: "Online PDF Tools & Document Processing Suite.",
+    subTitle: "Client-side & cloud document processing suite.",
     description:
-      "A fast and secure browser-based PDF utility to merge, split, compress, and convert PDF documents easily.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
+      "Fast browser-based PDF utility with an intuitive client-side UI to merge, split, compress, and convert PDF documents seamlessly.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
     image: "/pdfgini.png",
     externalLink: "http://pdfgini.com/",
-    categories: ["SERVICE"],
+    categories: ["DEVELOPER TOOLS", "FRONTEND & WEB APPS"],
   },
   {
     id: 3,
     title: "Intelens",
-    subTitle: "Smart Expense Tracking & Budget Management.",
+    subTitle: "Interactive expense tracking & financial analytics.",
     description:
-      "Take control of your finances with Intelens. Smart expense tracking, budget management, and financial insights for businesses and individuals.",
-    technologies: ["Next.js", " React Hook Form", "Zod", "Material UI"],
+      "Interactive financial dashboard featuring responsive data visualization, budget management, and seamless client-side state handling.",
+    technologies: ["Next.js", "React Hook Form", "Zod", "Material UI"],
     image: "/intelens.png",
     externalLink: "https://www.intelens.xyz/",
-    categories: ["TRACKER"],
+    categories: ["FRONTEND & WEB APPS", "FULL-STACK"],
   },
   {
     id: 4,
     title: "Next.js Starter",
-    subTitle: "A modern foundation for your next web app.",
+    subTitle: "Production-ready frontend architecture boilerplate.",
     description:
-      "A minimal and flexible Next.js template with TypeScript, Tailwind CSS, Shadcn, Material UI and a focus on developer experience.",
+      "Opinionated Next.js template engineered with TypeScript, Tailwind CSS, Shadcn UI, and performance-first best practices.",
     technologies: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Shadcn",
+      "Shadcn UI",
       "Material UI",
     ],
     image: "/nextjs-starter.png",
     externalLink: "https://www.npmjs.com/package/create-my-next-starter",
     githubLink: "https://github.com/nsshan98/create-my-next-starter",
-    categories: ["PACKAGE"],
+    categories: ["PACKAGES", "FRONTEND & WEB APPS"],
   },
   {
     id: 5,
     title: "eMistribd",
-    subTitle: "eMistribd is an online Cleaning Service Provider.",
+    subTitle: "On-demand online service provider platform.",
     description:
-      "A comprehensive platform connecting customers with professional cleaning service providers for home and office cleaning needs.",
+      "Responsive booking platform connecting customers with service professionals, featuring smooth booking flows and clean UI/UX.",
     technologies: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Shadcn",
+      "Shadcn UI",
     ],
     image: "/emistribd.png",
     externalLink: "https://emistribd.com",
-    categories: ["SERVICE"],
+    categories: ["FRONTEND & WEB APPS", "FULL-STACK"],
   },
   {
     id: 6,
     title: "Esheba",
-    subTitle: "Esheba is an online Cleaning Service Provider.",
+    subTitle: "Multi-vendor cleaning & home service marketplace.",
     description:
-      "A comprehensive platform connecting customers with professional cleaning service providers for home and office cleaning needs.",
+      "Modern web application offering seamless service discovery, scheduled booking flows, and accessible component architecture.",
     technologies: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Shadcn",
+      "Shadcn UI",
     ],
     image: "/eshebabd.png",
     externalLink: "https://eshebabd.com",
-    categories: ["SERVICE"],
+    categories: ["FRONTEND & WEB APPS", "FULL-STACK"],
   },
 ];
 
@@ -121,10 +121,10 @@ export default function PortfolioSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Projects
+            Featured Projects
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            A showcase of my recent work, from full-stack applications to open-source packages that solve real-world problems.
+            A showcase of recent work, highlighting responsive frontend architectures, client performance, and resilient full-stack systems.
           </p>
         </div>
 

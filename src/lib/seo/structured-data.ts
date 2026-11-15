@@ -7,9 +7,9 @@ export function generatePersonJsonLd() {
     name: AUTHOR_DEFAULT,
     url: SITE_URL,
     image: `${SITE_URL}/me.jpeg`,
-    jobTitle: "Full-Stack Engineer & Software Architect",
+    jobTitle: "Frontend-Focused Full-Stack Engineer",
     description:
-      "Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and privacy-first browser developer tools.",
+      "Frontend-Focused Full-Stack Engineer specializing in Next.js, React, TypeScript, modern UI performance, and scalable Node.js / PostgreSQL backends.",
     email: "mailto:hello@bysakib.com",
     sameAs: [
       "https://github.com/nsshan98",
@@ -17,13 +17,19 @@ export function generatePersonJsonLd() {
       "https://twitter.com/nsshan98",
     ],
     knowsAbout: [
-      "Backend Architecture",
-      "PostgreSQL",
-      "Next.js",
+      "Frontend Architecture",
       "React",
+      "Next.js",
       "TypeScript",
+      "JavaScript",
+      "Web Performance & Core Web Vitals",
+      "Client-side Browser Engines",
+      "Tailwind CSS & Design Systems",
+      "Backend Architecture",
+      "Node.js",
+      "PostgreSQL",
+      "REST APIs",
       "System Design",
-      "Web Performance",
       "Docker & Coolify",
     ],
   };
@@ -33,7 +39,7 @@ export function generateWebSiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: `${AUTHOR_DEFAULT} | Portfolio & Technical Blog`,
+    name: `${AUTHOR_DEFAULT} | Frontend & Full-Stack Engineering Portfolio`,
     url: SITE_URL,
     description:
       "Portfolio, technical engineering blog, and privacy-first browser-based developer tools by Nazmus Sakib.",

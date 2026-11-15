@@ -42,7 +42,7 @@ const ContactSection = () => {
       icon: Phone,
       title: "Phone",
       value: "+880 1923 248529",
-      description: "Available Mon–Fri",
+      description: "Available",
       href: "tel:+8801923248529",
       primary: false,
     },

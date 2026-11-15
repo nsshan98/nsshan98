@@ -97,7 +97,7 @@ const AboutSection = () => {
               >
                 <Image
                   src="/about-me.webp"
-                  alt="Nazmus Sakib — Full-Stack Engineer & Software Architect"
+                  alt="Nazmus Sakib — Frontend-Focused Full-Stack Engineer"
                   fill
                   className="object-cover"
                   sizes="360px"
@@ -145,18 +145,18 @@ const AboutSection = () => {
             {/* Description paragraphs */}
             <div className="space-y-5 text-slate-300 leading-relaxed text-base">
               <p>
-                Welcome to my portfolio! I&apos;m Nazmus Sakib, a passionate Full-Stack
-                Software Engineer &amp; System Architect dedicated to creating resilient
-                architectures, performant systems, and engaging digital experiences. With
-                deep hands-on experience in backend engineering, PostgreSQL internals, and
-                modern Next.js applications, I specialize in transforming architectural complexity
-                into elegant, reliable software.
+                Welcome to my portfolio! I&apos;m Nazmus Sakib, a Frontend-Focused Full-Stack
+                Engineer dedicated to crafting engaging digital experiences, fluid interfaces,
+                and high-performance web applications. With deep hands-on expertise in React, Next.js,
+                TypeScript, and modern design systems, I bridge the gap between pixel-perfect design
+                and complex architectural logic.
               </p>
               <p>
-                My expertise spans high-throughput APIs, database indexing and MVCC optimization,
-                containerized deployments with Docker and Coolify, and client-side browser engines.
-                I build both robust infrastructure and intuitive interfaces that deliver measurable
-                performance and user satisfaction.
+                Beyond the client layer, I design and build resilient backends with Node.js, Express,
+                Nest.js, and PostgreSQL, ensuring scalable APIs, data integrity, and efficient state
+                synchronization. Whether optimizing Core Web Vitals, engineering zero-server browser
+                utilities, or deploying containerized full-stack systems, I deliver end-to-end software
+                built for speed, accessibility, and scale.
               </p>
             </div>
 
@@ -171,8 +171,8 @@ const AboutSection = () => {
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed italic">
-                I am deeply committed to my work, investing creativity and precision into
-                every project to ensure a unique and effective user experience.
+                I believe the best software combines intuitive user interfaces with solid
+                architectural foundations — investing precision into every pixel and query.
               </p>
             </div>
           </div>

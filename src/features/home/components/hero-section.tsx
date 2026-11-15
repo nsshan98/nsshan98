@@ -89,7 +89,7 @@ const HeroSection = () => {
                 className="text-sm tracking-widest uppercase text-white/70 font-light"
                 style={{ letterSpacing: '0.15em' }}
               >
-                Full-Stack Engineer &amp; Software Architect
+                Frontend-Focused Full-Stack Engineer
               </span>
               <span className="text-lg opacity-80">🏆</span>
             </div>
@@ -98,7 +98,7 @@ const HeroSection = () => {
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight"
             >
-              Code that ships.
+              Crafted interfaces.
               <br />
               Systems that
               <br />
@@ -107,7 +107,7 @@ const HeroSection = () => {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-md font-light">
-              Full-Stack Software Engineer specializing in backend architecture, PostgreSQL performance, Next.js applications, and browser-based developer tools.
+              Frontend-Focused Full-Stack Engineer specializing in high-performance React &amp; Next.js applications, responsive design systems, and client-side browser engines — backed by resilient Node.js and PostgreSQL backends.
             </p>
 
             {/* CTA Buttons */}

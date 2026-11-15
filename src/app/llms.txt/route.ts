@@ -21,16 +21,16 @@ export async function GET() {
           .join("\n")
       : "In-depth technical writing focusing on system design, database internals, and performance.";
 
-  const content = `# Nazmus Sakib — Full-Stack Engineer & Technical Blog
+  const content = `# Nazmus Sakib — Frontend-Focused Full-Stack Engineer
 
-> Portfolio, technical blog, and privacy-first browser-based developer utilities built by Nazmus Sakib.
+> Portfolio, technical engineering blog, and privacy-first browser-based developer utilities built by Nazmus Sakib.
 
 ## About Author
 - Name: Nazmus Sakib
-- Role: Full-Stack Software Engineer & Software Architect
+- Role: Frontend-Focused Full-Stack Engineer
 - Website: [${SITE_URL}](${SITE_URL})
 - GitHub: [https://github.com/nsshan98](https://github.com/nsshan98)
-- Expertise: Backend Architecture, PostgreSQL MVCC & Performance, Next.js, React, TypeScript, Client-side Browser Engines.
+- Expertise: Next.js, React, TypeScript, Modern UI Architecture, Web Performance & Core Web Vitals, Client-side Browser Engines, Node.js, and PostgreSQL Backends.
 
 ## Developer Tools Suite (https://toolify.bysakib.com)
 All developer utilities are 100% client-side, running directly inside the user's browser with zero server uploads for complete data privacy.

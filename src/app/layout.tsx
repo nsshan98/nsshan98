@@ -15,20 +15,25 @@ import { generatePersonJsonLd, generateWebSiteJsonLd } from "@/lib/seo/structure
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nazmus Sakib — Full-Stack Software Engineer",
+    default: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
     template: "%s | Nazmus Sakib",
   },
   description:
-    "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and privacy-first developer tools.",
+    "Frontend-Focused Full-Stack Engineer specializing in modern Next.js, React, TypeScript, high-performance UI systems, and scalable backend architectures.",
   keywords: [
     "Nazmus Sakib",
+    "Frontend Engineer",
+    "Senior Frontend Developer",
     "Full-Stack Engineer",
-    "Software Architect",
-    "Backend Developer",
-    "PostgreSQL",
-    "Next.js",
-    "React",
+    "Next.js Developer",
+    "React Specialist",
     "TypeScript",
+    "Web Performance",
+    "Core Web Vitals",
+    "Backend Developer",
+    "Node.js",
+    "PostgreSQL",
+    "Software Architect",
     "Developer Tools",
     "Cross-Device Clipboard",
     "Image Compressor",
@@ -49,9 +54,9 @@ export const metadata: Metadata = {
     google: "p947cnm0CzaduoGfIeNJh5VTf19T-c47eRxwLEM9XP4",
   },
   openGraph: {
-    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    title: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
     description:
-      "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and privacy-first developer tools.",
+      "Frontend-Focused Full-Stack Engineer specializing in modern Next.js, React, TypeScript, high-performance UI systems, and scalable backend architectures.",
     url: SITE_URL,
     siteName: "Nazmus Sakib",
     locale: "en_US",
@@ -67,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nazmus Sakib — Full-Stack Software Engineer",
+    title: "Nazmus Sakib — Frontend-Focused Full-Stack Engineer",
     description:
-      "Full-Stack Software Engineer specializing in backend systems, PostgreSQL, Next.js, and developer tools.",
+      "Frontend-Focused Full-Stack Engineer specializing in modern Next.js, React, TypeScript, and scalable backend architectures.",
     images: [`${SITE_URL}/og-image.png`],
     creator: "@nsshan98",
   },

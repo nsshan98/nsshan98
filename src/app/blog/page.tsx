@@ -11,14 +11,14 @@ import { SITE_URL } from "@/lib/blog/metadata";
 export const metadata: Metadata = {
   title: "Technical Blog & Architecture",
   description:
-    "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
+    "Technical articles on Next.js performance, frontend architecture, modern web development, and scalable backend systems.",
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
     title: "Technical Blog & Architecture | Nazmus Sakib",
     description:
-      "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
+      "Technical articles on Next.js performance, frontend architecture, modern web development, and scalable backend systems.",
     url: `${SITE_URL}/blog`,
     siteName: "Nazmus Sakib",
     type: "website",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Technical Blog | Nazmus Sakib",
     description:
-      "Technical articles on backend architecture, PostgreSQL internals, Next.js performance, and distributed systems.",
+      "Technical articles on Next.js performance, frontend architecture, modern web development, and scalable backend systems.",
     images: [`${SITE_URL}/og-image.png`],
   },
 };
